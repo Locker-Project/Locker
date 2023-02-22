@@ -21,6 +21,7 @@ import selectSound from "Assets/Sounds/ui/select.m4a";
 
 import style from "./title.module.scss";
 import clsx from "clsx";
+import activateModel from "Components/Functions/ActivateModel/activateModel";
 
 
 
@@ -32,11 +33,7 @@ const Title: solid.Component = () => {
 
     let containerRef: HTMLDivElement | undefined;
 
-    function closeWindow() {
-        window.close();
-        //location.href = "https://feature-me-.onrender.com/"
-        history.back()
-    }
+    activateModel(buttonModel);
 
     function navigateHome() {
         navigate("/home");
@@ -61,8 +58,6 @@ const Title: solid.Component = () => {
             e.retry(true);
         }, 1000)
     });
-
-    console.log(buttonModel);
 
 
     return (

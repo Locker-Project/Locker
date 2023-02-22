@@ -1,10 +1,12 @@
 import * as solid from "solid-js";
 import playAudio from "Utils/PlayAudio/playAudio";
+import buttonModel from "Components/Functions/Models/ButtonModel";
 
 import style from "./largeButton.module.scss";
 
 import clickSound from "Assets/Sounds/ui/clickDown.m4a";
 import selectSound from "Assets/Sounds/ui/select.m4a";
+import activateModel from "Components/Functions/ActivateModel/activateModel";
 
 
 interface buttonPropsType extends solid.JSX.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -17,20 +19,8 @@ const LargeButton: solid.Component<buttonPropsType> = (props) => {
 
     const buttonProps = props;
     delete buttonProps.accentColor;
-
-    solid.onMount(() => {
-        if (!buttonRef) return;
-        buttonRef.addEventListener("click", handleClick);
-        buttonRef.addEventListener("pointerenter", handleHover);
-        buttonRef.addEventListener("focusin", handleHover);
-    })
-
-    solid.onCleanup(() => {
-        if (!buttonRef) return
-        buttonRef.removeEventListener("click", handleClick);
-        buttonRef.removeEventListener("pointerenter", handleHover);
-        buttonRef.removeEventListener("focusin", handleHover);
-    })
+    
+    activateModel(buttonModel);
 
     function handleClick() {
         playAudio(clickSound);
@@ -42,7 +32,7 @@ const LargeButton: solid.Component<buttonPropsType> = (props) => {
     }
 
     return (
-        <button tabIndex={0} ref={buttonRef} {...buttonProps} class={`${style.largeButton} ${props.class || ""}`}>
+        <button tabIndex={0} ref={buttonRef} {...buttonProps} class={`${style.largeButton} ${props.class || ""}`} use:buttonModel={{ handleClick, handleHover }} >
             <h2>{props.children}</h2>
         </button>
     )
