@@ -65,13 +65,13 @@
 
                 &:hover,
                 &:focus-visible {
-                    background-color: rgb(20, 150, 16);
-                    box-shadow: 0 0 8px 4px rgb(20, 150, 16);
+                    background-color: $accentColor;
+                    box-shadow: 0 0 8px 4px $accentColor;
 
                     //almost browsers does not support this
                     &[data-background] {
-                        background-color: attr(data-color color, rgb(20, 150, 16)), ;
-                        box-shadow: 0 0 8px 4px attr(data-color color, rgb(20, 150, 16));
+                        background-color: attr(data-color color, $accentColor);
+                        box-shadow: 0 0 8px 4px attr(data-color color, $accentColor);
                     }
 
                     &::before {
