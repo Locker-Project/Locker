@@ -9,6 +9,8 @@ import TranslateText from "Components/TranslateText/translateText";
 import { showModal, setShowModal, canBegin } from "./titleState";
 import SettingsModal from "./settingsModal/settingsModal";
 
+import buttonModel from "Components/Functions/Models/ButtonModel";
+
 import playAudio from "Utils/PlayAudio/playAudio";
 
 import version from "Assets/StaticInfo/version.json";
@@ -21,13 +23,7 @@ import style from "./title.module.scss";
 import clsx from "clsx";
 
 
-declare module "solid-js" {
-    namespace JSX {
-        interface Directives {
-            titleButtonModel: boolean;
-        }
-    }
-}
+
 
 const Title: solid.Component = () => {
     const navigate = useNavigate();
@@ -55,18 +51,7 @@ const Title: solid.Component = () => {
         playAudio(selectSound);
     }
 
-    function titleButtonModel(el: Element) {
-        solid.onMount(() => {
-            el.addEventListener("click", handleClick);
-            el.addEventListener("pointerenter", handleHover);
-            el.addEventListener("focusin", handleHover);
-        });
-        solid.onCleanup(() => {
-            el.removeEventListener("click", handleClick);
-            el.removeEventListener("pointerenter", handleHover);
-            el.removeEventListener("focusin", handleHover);
-        })
-    }
+
 
     useBeforeLeave(async (e) => {
         if (!e.defaultPrevented) e.preventDefault();
@@ -75,7 +60,10 @@ const Title: solid.Component = () => {
         setTimeout(() => {
             e.retry(true);
         }, 1000)
-    })
+    });
+
+    console.log(buttonModel);
+
 
     return (
         <div class={style.title} ref={containerRef} classList={{ blackOut: fadeOut() }}>
@@ -83,10 +71,10 @@ const Title: solid.Component = () => {
                 {/* <GlitchImage src={background} /> */}
             </div>
             <div class={style.titleText}>
-                <h1 class={clsx("shadowTitle", style.titleName)}>Locker</h1>
+                <h1 class={clsx("shadowTitle", style.titleName)} >Locker</h1>
                 <div class={style.buttons}>
-                    <solid.Show when={canBegin()} fallback={<button use:titleButtonModel><TranslateText key="title.needReload" /></button>}>
-                        <button onClick={navigateHome} use:titleButtonModel>
+                    <solid.Show when={canBegin()} fallback={<button use:buttonModel={{handleClick, handleHover}}><TranslateText key="title.needReload" /></button>}>
+                        <button onClick={navigateHome} use:buttonModel={{handleClick, handleHover}}>
                             <TranslateText key="title.start" />
                         </button>
                     </solid.Show>
@@ -95,7 +83,7 @@ const Title: solid.Component = () => {
             <div class={style.footer}>
                 <p>Locker {version.version}<br /> ©{new Date().getFullYear()} Locker Project All rights reserved. Designed by Mksk.</p>
                 <span><TranslateText key="title.language" /></span>
-                <button class={`iconWrapper ${style.settings}`} onClick={() => { setShowModal(m => !m) }} use:titleButtonModel >
+                <button class={`iconWrapper ${style.settings}`} onClick={() => { setShowModal(m => !m) }} use:buttonModel={{handleClick, handleHover}} >
                     <BsGear class={style.settingsIcon} />
                 </button>
             </div>
