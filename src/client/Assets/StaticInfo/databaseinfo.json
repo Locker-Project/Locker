@@ -1,0 +1,7 @@
+{
+    "version": "1.0.0",
+    "DBName": "Locker1.0DataBase",
+    "databases": [
+        "music"
+    ]
+}

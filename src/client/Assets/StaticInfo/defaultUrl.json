@@ -1,0 +1,9 @@
+{
+    "github": {
+        "repo": "https://github.com/Mkskdesu/Locker",
+        "issues":"https://github.com/Mkskdesu/Locker/issues"
+    },
+    "resources": {
+        "updateMap": "/update/map"
+    }
+}

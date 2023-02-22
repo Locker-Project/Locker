@@ -1,0 +1,121 @@
+@import "./mixin.scss";
+
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+    cursor: url("../Assets/Images/pointer.cur"), default;
+    user-select: none;
+}
+
+form,
+select,
+input,
+textarea,
+button,
+label {
+    all: unset;
+    box-sizing: border-box;
+    max-width: 100%;
+    cursor: inherit;
+    outline: none;
+    @include font-body;
+    @include font-size;
+    color: $textColor;
+    background-color: transparent;
+    border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+
+.hiddenVisibility {
+    visibility: hidden;
+}
+
+.noDisplay {
+    display: none;
+}
+
+.hide {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.iconWrapper {
+    margin: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fadeOut {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+.blackOut {
+    transition: 1s;
+    animation: blackOut 1s ease forwards;
+}
+
+.shadowTitle {
+    text-shadow: 1px 1px 24px $secondaryText;
+    filter: drop-shadow(0 0 4px $secondaryText);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes blackOut {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(0);
+    }
+}
