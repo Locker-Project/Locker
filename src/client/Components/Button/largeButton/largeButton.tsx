@@ -3,8 +3,8 @@ import playAudio from "Utils/PlayAudio/playAudio";
 
 import style from "./largeButton.module.scss";
 
-import clickSound from "Assets/Sounds/uiFallBack/clickDown.m4a";
-import selectSound from "Assets/Sounds/uiFallBack/select.m4a";
+import clickSound from "Assets/Sounds/ui/clickDown.m4a";
+import selectSound from "Assets/Sounds/ui/select.m4a";
 
 
 interface buttonPropsType extends solid.JSX.ButtonHTMLAttributes<HTMLButtonElement> {

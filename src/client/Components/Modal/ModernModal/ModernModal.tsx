@@ -5,8 +5,8 @@ import playAudio from "Utils/PlayAudio/playAudio";
 
 import style from "./ModernModal.module.scss";
 
-import openModal from "Assets/Sounds/uiFallBack/openModal.m4a";
-import closeModal from "Assets/Sounds/uiFallBack/closeModal.m4a";
+import openModal from "Assets/Sounds/ui/openModal.m4a";
+import closeModal from "Assets/Sounds/ui/closeModal.m4a";
 
 interface modalProps {
     title: solid.JSXElement

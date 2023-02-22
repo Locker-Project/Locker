@@ -6,8 +6,8 @@ import GradientButton from "Components/Button/gradientButton/gradientButton";
 
 import playAudio from "Utils/PlayAudio/playAudio";
 
-import clickSound from "Assets/Sounds/uiFallBack/clickDown.m4a";
-import cancelSound from "Assets/Sounds/uiFallBack/cancel.m4a";
+import clickSound from "Assets/Sounds/ui/clickDown.m4a";
+import cancelSound from "Assets/Sounds/ui/cancel.m4a";
 
 import style from "./terms.module.scss"
 

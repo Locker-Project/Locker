@@ -14,8 +14,8 @@ import playAudio from "Utils/PlayAudio/playAudio";
 import version from "Assets/StaticInfo/version.json";
 
 /* import background from "Assets/Images/tidal_wreck_far_camera.png"; */
-import clickSound from "Assets/Sounds/uiFallBack/clickDown.m4a";
-import selectSound from "Assets/Sounds/uiFallBack/select.m4a";
+import clickSound from "Assets/Sounds/ui/clickDown.m4a";
+import selectSound from "Assets/Sounds/ui/select.m4a";
 
 import style from "./title.module.scss";
 import clsx from "clsx";

@@ -12,7 +12,7 @@ import TitleDeleteModal from "./deleteModal";
 import downloadLocalStorage from "Utils/Export/localStorage/downloadLocalStorage";
 import playAudio from "Utils/PlayAudio/playAudio";
 
-import openModal from "Assets/Sounds/uiFallBack/openModal.m4a";
+import openModal from "Assets/Sounds/ui/openModal.m4a";
 
 import style from "../title.module.scss";
 

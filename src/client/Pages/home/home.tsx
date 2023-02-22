@@ -7,8 +7,8 @@ import playAudio from "Utils/PlayAudio/playAudio";
 
 import style from "./home.module.scss";
 
-import clickSound from "Assets/Sounds/uiFallBack/clickDown.m4a";
-import selectSound from "Assets/Sounds/uiFallBack/select.m4a";
+import clickSound from "Assets/Sounds/ui/clickDown.m4a";
+import selectSound from "Assets/Sounds/ui/select.m4a";
 import Header from "../../Components/Header/header";
 import HomePageFooter from "./footer/homePageFooter";
 
@@ -33,7 +33,7 @@ const Home: solid.Component = () => {
             <Header />
             <main class={style.main}>
             </main>
-            <HomePageFooter/>
+            <HomePageFooter />
         </div >
     )
 }

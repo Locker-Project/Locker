@@ -9,8 +9,8 @@ import defaultUrl from "Assets/StaticInfo/defaultUrl.json";
 
 import style from "./header.module.scss";
 
-import clickSound from "Assets/Sounds/uiFallBack/clickDown.m4a";
-import selectSound from "Assets/Sounds/uiFallBack/select.m4a";
+import clickSound from "Assets/Sounds/ui/clickDown.m4a";
+import selectSound from "Assets/Sounds/ui/select.m4a";
 
 declare module "solid-js" {
     namespace JSX {
