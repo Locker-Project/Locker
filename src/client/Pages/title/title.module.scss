@@ -18,6 +18,7 @@
 
         .titleName {
             @include font-title;
+            font-weight: unset;
         }
 
         .buttons {
