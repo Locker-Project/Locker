@@ -27,7 +27,9 @@ const TitleDeleteModal: solid.Component = () => {
             show={showDeleteSettingsModal()}
             title={t("title.settings.deleteDataModal.title").toString()}
             onClickBackground={() => setShowDeleteSettingsModal(false)}
-            interactions={[{ label: t("title.settings.deleteDataModal.cancel").toString(), onClick: () => setShowDeleteSettingsModal(false) }]} >
+            interactions={[{ label: t("title.settings.deleteDataModal.cancel").toString(), onClick: () => setShowDeleteSettingsModal(false) }]}
+            animate={false}
+        >
             <TranslateText key="title.settings.deleteDataModal.description" />
             <GradientButton onClick={() => deleteData(deleteLocalStorage)}><TranslateText key="title.settings.deleteDataModal.saveData" /></GradientButton>
             <GradientButton onClick={() => deleteData(deleteDatabase)}><TranslateText key="title.settings.deleteDataModal.resources" /></GradientButton>
