@@ -47,7 +47,7 @@ module.exports = {
                 exclude: /\.module\.[s]?css/
             },
             {
-                test: /\.cur?$/,
+                test: /\.cur$/,
                 type: "asset/inline",
                 generator: { dataUrl: context => "data:image/cur;base64," + context.toString("base64") }
             },
@@ -56,6 +56,7 @@ module.exports = {
             { test: /\.svg$/, type: "asset/inline" },
             { test: /\.mp3$/, type: "asset/inline" },
             { test: /\.mp4|\.m4a$/, type: "asset/inline" },
+            { test: /\.glb$/, type: "asset/inline" },
         ]
     }
 }
