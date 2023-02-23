@@ -27,9 +27,8 @@ const ModernModal: solid.Component<modalProps> = (props) => {
     let innerRef: HTMLDivElement | undefined;
 
     function containerEnter(el: Element, done: () => void) {
-        if (props.animate === false) return;
         const animation = el.animate([{ opacity: 0 }, { opacity: 1 }], {
-            duration: props.duration ?? 300,
+            duration: props.animate === false ? 0 : props.duration ?? 300,
             fill: "forwards",
             easing: "ease"
         });
@@ -37,9 +36,8 @@ const ModernModal: solid.Component<modalProps> = (props) => {
 
     }
     function containerExit(el: Element, done: () => void) {
-        if (props.animate === false) return;
         const animation = el.animate([{ opacity: 1 }, { opacity: 0 }], {
-            duration: props.duration ?? 300,
+            duration: props.animate===false ? 0 : props.duration ?? 300,
             fill: "forwards",
             easing: "ease"
         });
