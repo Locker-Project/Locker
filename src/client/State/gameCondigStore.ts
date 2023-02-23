@@ -1,3 +1,5 @@
 import { createStore } from "solid-js/store";
 
-export const [gameConfigStore, setGameConfigStore] = createStore({ ready: false, data: {} });
+type gameConfigStore = { ready: false, data: {} } | { ready: true, data: gameConfig }
+
+export const [gameConfigStore, setGameConfigStore] = createStore<gameConfigStore>({ ready: false, data: {} });
