@@ -10,6 +10,7 @@ import Header from "../../Components/Header/header";
 import HomePageFooter from "./footer/homePageFooter";
 import MenuRenderer from "./menuRenderer";
 import { hideUi, setHideUi } from "./homeState";
+import MenuContent from "./menuContent";
 
 
 const Home: solid.Component = () => {
@@ -43,6 +44,7 @@ const Home: solid.Component = () => {
             <Header title={t("menu.title").toString()} />
             <main class={style.main}>
                 {/* <MenuRenderer /> */}
+                <MenuContent/>
             </main>
             <HomePageFooter />
         </div >
