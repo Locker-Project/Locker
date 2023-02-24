@@ -1,15 +1,14 @@
 interface gameConfig {
     graphics: {
+        menu: {
+            resolution: number
+            fps: number
+            antiAlias: true
+        },
         musicgame: {
             resolution: number
             fps: number
-            postProcessing: {
-                enabled: boolean
-                antialias: AntiAliasType
-                AALevel: AALevel
-                ambientOcclusion: boolean
-                bloom: boolean
-            }
+            antiAlias: boolean
         }
     }
     gameplay: {

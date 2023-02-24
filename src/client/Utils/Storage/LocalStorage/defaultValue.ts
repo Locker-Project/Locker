@@ -26,16 +26,15 @@ const DBVersion = {
 
 const gameConfig: gameConfig = {
     graphics: {
+        menu: {
+            resolution: 1,
+            fps: 60,
+            antiAlias:true
+        },
         musicgame: {
             resolution: 1,
             fps: 120,
-            postProcessing: {
-                AALevel: 0,
-                antialias: "default",
-                enabled: true,
-                ambientOcclusion: false,
-                bloom: false,
-            }
+            antiAlias:true
         }
     },
     gameplay: {
