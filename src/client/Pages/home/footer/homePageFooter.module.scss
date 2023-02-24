@@ -1,5 +1,44 @@
 @import "../../../App/mixin.scss";
 
-.footer{
-    
+.footerWrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 16px;
+
+    .footer {
+        width: 80%;
+        height: 100%;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(128px, 1fr);
+        border: 2px solid $darkBorder;
+        background-color: $inputBackgroundColor;
+        margin: 0 auto;
+    }
+}
+
+
+
+.footerIcon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid $darkBorder;
+
+    &:hover {
+        background-color: $inputForegroundColor;
+        box-shadow: 0 0 4px 1px $borderColor;
+    }
+
+    &:active {
+        filter: brightness(0.8);
+        transform: scale(0.98);
+        box-shadow: 0 0 4px 2px $accentColor;
+    }
+
+    &:focus-visible {
+        box-shadow: 0 0 4px 2px $activeColor;
+    }
 }
