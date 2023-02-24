@@ -1,11 +1,8 @@
 import * as solid from "solid-js";
-import playAudio from "Utils/PlayAudio/playAudio";
 import buttonModel from "Components/Functions/Models/ButtonModel";
 
 import style from "./gradientButton.module.scss";
 
-import clickSound from "Assets/Sounds/ui/clickDown.m4a";
-import selectSound from "Assets/Sounds/ui/select.m4a";
 import activateModel from "Components/Functions/ActivateModel/activateModel";
 
 interface buttonPropsType extends solid.JSX.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -20,12 +17,7 @@ const GradientButton: solid.Component<buttonPropsType> = (props) => {
     activateModel(buttonModel);
 
     function handleClick() {
-        playAudio(clickSound);
         navigator.vibrate(50);
-    }
-
-    function handleHover() {
-        playAudio(selectSound);
     }
 
     const buttonProps = props;
@@ -33,7 +25,7 @@ const GradientButton: solid.Component<buttonPropsType> = (props) => {
 
 
     return (
-        <button tabIndex={0} ref={buttonRef} {...buttonProps} class={`${style.gradientButton} ${props.class || ""}`} use:buttonModel={{handleClick,handleHover}} >
+        <button tabIndex={0} ref={buttonRef} {...buttonProps} class={`${style.gradientButton} ${props.class || ""}`} use:buttonModel={{ handleClick }} >
             {props.children}
         </button>
     )
