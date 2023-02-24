@@ -1,6 +1,7 @@
 const JAMenuTranslation = {
     "title": "ホーム",
     'solo': 'シングルプレイヤー',
+    'play': "プレイ",
     'multi': 'マルチプレイヤー',
     'practice': 'プラクティス',
     'settings': '設定',
