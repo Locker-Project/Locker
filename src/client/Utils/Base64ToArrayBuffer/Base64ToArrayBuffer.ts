@@ -1,11 +1,8 @@
+import removeMime from "Utils/mimeType/removeMime/removeMime";
+
 function base64ToArrayBuffer(base64: string) {
-    var binary_string = window.atob(base64);
-    var len = binary_string.length;
-    var bytes = new Uint8Array(len);
-    for (var i = 0; i < len; i++) {
-        bytes[i] = binary_string.charCodeAt(i);
-    }
+    const bytes = Uint8Array.from(window.atob(removeMime(base64)), c => c.charCodeAt(0))
     return bytes.buffer;
 }
 
-export default base64ToArrayBuffer
+export default base64ToArrayBuffer;
