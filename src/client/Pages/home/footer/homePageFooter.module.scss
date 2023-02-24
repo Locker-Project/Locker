@@ -16,6 +16,8 @@
         border: 2px solid $darkBorder;
         background-color: $inputBackgroundColor;
         margin: 0 auto;
+        min-width: 0;
+        overflow: auto;
     }
 }
 
