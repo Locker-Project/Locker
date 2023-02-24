@@ -11,13 +11,7 @@ import SettingsModal from "./settingsModal/settingsModal";
 
 import buttonModel from "Components/Functions/Models/ButtonModel";
 
-import playAudio from "Utils/PlayAudio/playAudio";
-
 import version from "Assets/StaticInfo/version.json";
-
-/* import background from "Assets/Images/tidal_wreck_far_camera.png"; */
-import clickSound from "Assets/Sounds/ui/clickDown.m4a";
-import selectSound from "Assets/Sounds/ui/select.m4a";
 
 import style from "./title.module.scss";
 import clsx from "clsx";
@@ -40,15 +34,8 @@ const Title: solid.Component = () => {
     }
 
     function handleClick() {
-        playAudio(clickSound);
         navigator.vibrate(50);
     }
-
-    function handleHover() {
-        playAudio(selectSound);
-    }
-
-
 
     useBeforeLeave(async (e) => {
         if (!e.defaultPrevented) e.preventDefault();
@@ -68,8 +55,8 @@ const Title: solid.Component = () => {
             <div class={style.titleText}>
                 <h1 class={clsx("shadowTitle", style.titleName)} >Locker</h1>
                 <div class={style.buttons}>
-                    <solid.Show when={canBegin()} fallback={<button use:buttonModel={{handleClick, handleHover}}><TranslateText key="title.needReload" /></button>}>
-                        <button onClick={navigateHome} use:buttonModel={{handleClick, handleHover}}>
+                    <solid.Show when={canBegin()} fallback={<button use:buttonModel={{handleClick}}><TranslateText key="title.needReload" /></button>}>
+                        <button onClick={navigateHome} use:buttonModel={{handleClick}}>
                             <TranslateText key="title.start" />
                         </button>
                     </solid.Show>
@@ -78,7 +65,7 @@ const Title: solid.Component = () => {
             <div class={style.footer}>
                 <p>Locker {version.version}<br /> ©{new Date().getFullYear()} Locker Project All rights reserved. Designed by Mksk.</p>
                 <span><TranslateText key="title.language" /></span>
-                <button class={`iconWrapper ${style.settings}`} onClick={() => { setShowModal(m => !m) }} use:buttonModel={{handleClick, handleHover}} >
+                <button class={`iconWrapper ${style.settings}`} onClick={() => { setShowModal(m => !m) }} use:buttonModel={{handleClick}} >
                     <BsGear class={style.settingsIcon} />
                 </button>
             </div>

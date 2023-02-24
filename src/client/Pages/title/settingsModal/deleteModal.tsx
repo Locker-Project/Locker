@@ -1,7 +1,8 @@
 import * as solid from "solid-js";
 import { useTransContext } from "@mbarzda/solid-i18next";
 
-import GradientButton from "Components/Button/gradientButton/gradientButton";
+import NormalButton from "Components/Button/normalButton/normalButton";
+
 import ModernModal from "Components/Modal/ModernModal/ModernModal";
 import TranslateText from "Components/TranslateText/translateText";
 
@@ -31,9 +32,9 @@ const TitleDeleteModal: solid.Component = () => {
             animate={false}
         >
             <TranslateText key="title.settings.deleteDataModal.description" />
-            <GradientButton onClick={() => deleteData(deleteLocalStorage)}><TranslateText key="title.settings.deleteDataModal.saveData" /></GradientButton>
-            <GradientButton onClick={() => deleteData(deleteDatabase)}><TranslateText key="title.settings.deleteDataModal.resources" /></GradientButton>
-            <GradientButton onClick={() => deleteData(clearStorage)}><TranslateText key="title.settings.deleteDataModal.all" /></GradientButton>
+            <NormalButton onClick={() => deleteData(deleteLocalStorage)}><TranslateText key="title.settings.deleteDataModal.saveData" /></NormalButton>
+            <NormalButton onClick={() => deleteData(deleteDatabase)}><TranslateText key="title.settings.deleteDataModal.resources" /></NormalButton>
+            <NormalButton onClick={() => deleteData(clearStorage)}><TranslateText key="title.settings.deleteDataModal.all" /></NormalButton>
         </ModernModal>
     )
 }
