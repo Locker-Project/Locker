@@ -2,7 +2,6 @@ import * as solid from "solid-js";
 import { useNavigate } from "@solidjs/router";
 
 import TranslateText from "Components/TranslateText/translateText";
-import GradientButton from "Components/Button/gradientButton/gradientButton";
 
 import playAudio from "Utils/PlayAudio/playAudio";
 
@@ -10,6 +9,7 @@ import clickSound from "Assets/Sounds/ui/clickDown.m4a";
 import cancelSound from "Assets/Sounds/ui/cancel.m4a";
 
 import style from "./terms.module.scss"
+import NormalButton from "Components/Button/normalButton/normalButton";
 
 const SetupTerms: solid.Component = () => {
 
@@ -63,9 +63,9 @@ const SetupTerms: solid.Component = () => {
                 </label>
             </div>
             <div class={style.interactions}>
-                <GradientButton onClick={navigation} class={style.button} disabled={Boolean(timer()) || !agreeTerms()}>
+                <NormalButton onClick={navigation} class={style.button} disabled={Boolean(timer()) || !agreeTerms()}>
                     <TranslateText key="setup.next" end={timer() && `(${timer()})`} />
-                </GradientButton>
+                </NormalButton>
             </div>
         </div>
     )

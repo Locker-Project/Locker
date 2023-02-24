@@ -1,11 +1,11 @@
 import * as solid from "solid-js"; 
 import { useBeforeLeave, useNavigate } from "@solidjs/router";
 
-import GradientButton from "Components/Button/gradientButton/gradientButton";
 import TranslateText from "Components/TranslateText/translateText";
 import sleep from "Utils/sleep/sleep";
 
 import style from "./settings.module.scss"
+import NormalButton from "Components/Button/normalButton/normalButton";
 
 
 const SetupSettings: solid.Component = () => {
@@ -34,9 +34,9 @@ const SetupSettings: solid.Component = () => {
             </div>
             <hr />
             <div class={style.interactions}>
-                <GradientButton onClick={navigation} class={style.button}>
+                <NormalButton onClick={navigation} class={style.button}>
                     <TranslateText key="setup.next" />
-                </GradientButton>
+                </NormalButton>
             </div>
         </div>
     )
