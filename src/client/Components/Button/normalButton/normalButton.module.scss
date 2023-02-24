@@ -1,0 +1,34 @@
+@import "../../../App/mixin.scss";
+
+.button {
+    display: flex;
+    appearance: none;
+    text-align: center;
+    background-color: $inputBackgroundColor;
+    //transition: 0.2s;
+    margin: 4px;
+    padding: 4px;
+    min-height: 32px;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    color: $textColor;
+    min-width: 128px;
+    border: 2px solid $darkBorder;
+
+    &:hover {
+        box-shadow: 0 0 4px 0 whitesmoke;
+        background-color: $inputForegroundColor;
+    }
+
+    &:active {
+        box-shadow: 0 0 4px 0 $accentColor;
+        background-color: $backgroundSubColor;
+        filter: brightness(0.8);
+    }
+
+    &:focus-visible {
+        box-shadow: 0 0 4px 2px $activeColor;
+        background-color: $inputForegroundColor;
+    }
+}
