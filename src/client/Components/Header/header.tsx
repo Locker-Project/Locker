@@ -1,7 +1,6 @@
 import * as solid from "solid-js";
 import { BsArrowUp, BsArrowUpLeft, BsBatteryFull, BsChatLeftDots, BsGear, BsGithub, BsGrid3x3Gap, BsLink45deg, BsVolumeUp, BsWifi } from "solid-icons/bs";
 
-import playAudio from "Utils/PlayAudio/playAudio";
 import timeDegitFormat from "Utils/timeFormat/timeDigitFormat";
 import TranslateText from "Components/TranslateText/translateText";
 
@@ -9,8 +8,7 @@ import defaultUrl from "Assets/StaticInfo/defaultUrl.json";
 
 import style from "./header.module.scss";
 
-import clickSound from "Assets/Sounds/ui/clickDown.m4a";
-import selectSound from "Assets/Sounds/ui/select.m4a";
+import { useButtonModel } from "Components/Functions/ActivateModel/activateModel";
 
 declare module "solid-js" {
     namespace JSX {
@@ -20,7 +18,7 @@ declare module "solid-js" {
     }
 }
 
-const HomeHeader: solid.Component = () => {
+const HomeHeader: solid.Component<{ title: solid.JSXElement }> = (props) => {
     let containerRef: HTMLDivElement | undefined;
 
     const [clock, setClock] = solid.createSignal(new Date());
@@ -32,12 +30,14 @@ const HomeHeader: solid.Component = () => {
     let clockInterval: NodeJS.Timer;
 
     const icons = [
-        { element: <BsVolumeUp />, onClick: () => { } },
-        { element: <BsGear />, onClick: () => { } },
+        //{ element: <BsVolumeUp />, onClick: () => { } },
+        //{ element: <BsGear />, onClick: () => { } },
         { element: <BsLink45deg />, onClick: () => { } },
         { element: <BsGithub />, onClick: () => { open(defaultUrl.github.repo) } },
         { element: <BsGrid3x3Gap />, onClick: () => { } },
     ]
+
+    const buttonModel = useButtonModel();
 
     solid.onMount(() => {
         clockInterval = setInterval(updateClock, 1000);
@@ -59,30 +59,12 @@ const HomeHeader: solid.Component = () => {
     }
 
     function handleClick() {
-        playAudio(clickSound);
         navigator.vibrate(50);
-    }
-
-    function handleHover() {
-        playAudio(selectSound);
-    }
-
-    function headerIconModel(el: HTMLButtonElement) {
-        solid.onMount(() => {
-            el.addEventListener("click", handleClick);
-            el.addEventListener("pointerenter", handleHover);
-            el.addEventListener("focusin", handleHover);
-        });
-        solid.onCleanup(() => {
-            el.removeEventListener("click", handleClick);
-            el.removeEventListener("pointerenter", handleHover);
-            el.removeEventListener("focusin", handleHover);
-        })
     }
 
     return (
         <header class={style.header} ref={containerRef} >
-            <h1 class="shadowTitle">{<TranslateText key="menu.title" />}</h1>
+            <h1 class="shadowTitle">{props.title}</h1>
             <div class={style.spacer} />
             <div class={style.clock}>
                 {timeDegitFormat(clock().getHours())}:{timeDegitFormat(clock().getMinutes())}
@@ -96,7 +78,7 @@ const HomeHeader: solid.Component = () => {
                     {
                         content => {
                             return (
-                                <button class={style.icon} onClick={content.onClick} use:headerIconModel>
+                                <button class={style.icon} onClick={content.onClick} use:buttonModel={{ handleClick }}>
                                     {content.element}
                                 </button>
                             )
