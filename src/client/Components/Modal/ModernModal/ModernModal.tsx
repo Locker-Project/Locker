@@ -1,4 +1,4 @@
-import GradientButton from "Components/Button/gradientButton/gradientButton";
+import NormalButton from "Components/Button/normalButton/normalButton";
 import * as solid from "solid-js";
 import { Transition } from "solid-transition-group";
 import playAudio from "Utils/PlayAudio/playAudio";
@@ -7,6 +7,7 @@ import style from "./ModernModal.module.scss";
 
 import openModal from "Assets/Sounds/ui/openModal.m4a";
 import closeModal from "Assets/Sounds/ui/closeModal.m4a";
+
 
 interface modalProps {
     title: solid.JSXElement
@@ -37,7 +38,7 @@ const ModernModal: solid.Component<modalProps> = (props) => {
     }
     function containerExit(el: Element, done: () => void) {
         const animation = el.animate([{ opacity: 1 }, { opacity: 0 }], {
-            duration: props.animate===false ? 0 : props.duration ?? 300,
+            duration: props.animate === false ? 0 : props.duration ?? 300,
             fill: "forwards",
             easing: "ease"
         });
@@ -112,7 +113,7 @@ const ModernModal: solid.Component<modalProps> = (props) => {
                             <solid.For each={props.interactions}>
                                 {
                                     data => (
-                                        <GradientButton {...data}>{data.label}</GradientButton>
+                                        <NormalButton {...data}>{data.label}</NormalButton>
                                     )
                                 }
                             </solid.For>
