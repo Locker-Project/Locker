@@ -1,0 +1,14 @@
+{
+    "version": "1.0.0",
+    "type": "music",
+    "title": "Test",
+    "composer": "Test Locker",
+    "made": "official",
+    "showBpm": "120",
+    "time": 16000,
+    "demo": {
+        "start": 0,
+        "end": 16000
+    },
+    "license": "2023 Locker Project. - Mksk"
+}

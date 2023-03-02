@@ -1,0 +1,9 @@
+{
+    "version": "1.0.0",
+    "type": "musicPack",
+    "packageName": "Locker Musics Ver.1.0.0",
+    "add": [
+        "test"
+    ],
+    "delete": []
+}
