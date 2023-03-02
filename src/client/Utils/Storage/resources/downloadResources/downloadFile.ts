@@ -22,7 +22,7 @@ function downloadResourceFile(url: string, hash?: string) {
                     }
                 }
                 JSZip.loadAsync(res).then(zip => {
-                    if (!zip.file("FileMap.json")) throw new IntegrityError("FileMap not found");
+                    if (!zip.file("information.json")) throw new IntegrityError("information not found");
                     resolve(zip);
                 })
             }).catch(error => {
