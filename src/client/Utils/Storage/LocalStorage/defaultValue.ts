@@ -5,11 +5,10 @@ const environment: environment = {
     initializedSettings: false,
 }
 
-const resourcesDownloaded = {
+const resources = {
     music: {
-        initialized: false,
-        version: "0.0.0",
-        installed: []
+        installed: [],
+        updated: 0, //put date number
     },
 }
 
@@ -20,7 +19,7 @@ const musicSelect = {
 const DBVersion = {
     version: "0.0.0",
     initialized: false,
-    updated: Date.now(),
+    updated: 0, //put Date number
 }
 
 
@@ -29,12 +28,12 @@ const gameConfig: gameConfig = {
         menu: {
             resolution: 1,
             fps: 60,
-            antiAlias:true
+            antiAlias: true
         },
         musicgame: {
             resolution: 1,
             fps: 120,
-            antiAlias:true
+            antiAlias: true
         }
     },
     gameplay: {
@@ -71,4 +70,4 @@ const userConfig: userConfig = {
 
 
 
-export { environment, resourcesDownloaded, DBVersion, gameConfig, musicSelect, userConfig };
+export { environment, resources, DBVersion, gameConfig, musicSelect, userConfig };

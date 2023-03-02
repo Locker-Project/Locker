@@ -20,8 +20,8 @@ function deleteGameConfig() {
 
 function deleteResourcesInfo() {
     try {
-        if (localStorage.getItem("resourcesDownloaded")) localStorage.removeItem("resourcesDownloaded");
-        if(localStorage.getItem("DBVersion")) localStorage.removeItem("DBVersion");
+        if (localStorage.getItem("resources")) localStorage.removeItem("resources");
+        if (localStorage.getItem("DBVersion")) localStorage.removeItem("DBVersion");
     } catch (error) {
         if (error instanceof Error) throw error
     }
@@ -35,4 +35,4 @@ function deleteMusicSelect() {
     }
 }
 
-export {deleteLocalStorage,deleteEnvironment,deleteGameConfig,deleteResourcesInfo,deleteMusicSelect}
+export { deleteLocalStorage, deleteEnvironment, deleteGameConfig, deleteResourcesInfo, deleteMusicSelect }
