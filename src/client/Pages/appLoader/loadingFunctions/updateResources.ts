@@ -5,8 +5,9 @@ import fetchResourcesUpdate from "Utils/Storage/resources/fetchUpdate/fetchUpdat
 import downloadResourceFile from "Utils/Storage/resources/downloadResources/downloadFile";
 import getVersionMapInfo from "Utils/getVersionMapInfo/getVersionMapInfo";
 import fileSize from "filesize";
-import { offlineMode } from "State/network/offlineMode";
-
+import path from "path-browserify";
+import { parseMusicCollection } from "Utils/Storage/resources/installResources/musicResources/parseMusicCollection";
+import { getResources } from "Utils/getConfig/getConfig";
 
 function uptdateResourcesFromLoader(setTitle: solid.Setter<string>, setDescription: solid.Setter<string>) {
     const [download, setDownload] = solid.createSignal({
@@ -15,48 +16,33 @@ function uptdateResourcesFromLoader(setTitle: solid.Setter<string>, setDescripti
         size: 0,
         totalSize: 0
     });
-    let versionMapInfo: { count: any; size: any; };
+
+    const resources = getResources();
+
     return new Promise<void>(async (resolve, reject) => {
 
-        if (offlineMode()) {
+        if (!navigator.onLine) {
             resolve();
             return;
         }
-        const downloadFunctions = [
-            { key: "background", func: () => { } },
-            { key: "behavior", func: () => { } },
-            { key: "music", func: () => { } }
-        ]
+
         setTitle(i18next.t("appLoader.resources.title").toString());
         setDescription(i18next.t("appLoader.resources.fetchUpdate").toString());
         const versionMap = await fetchResourcesUpdate();
-        versionMapInfo = getVersionMapInfo(versionMap);
-        console.log(versionMapInfo);
+        console.log(versionMap);
 
 
-        for (const type in downloadFunctions) {
-            if (Object.prototype.hasOwnProperty.call(downloadFunctions, type)) {
-                const element = downloadFunctions[type];
-                const key = element.key as keyof updateMap;
-                const versions = versionMap[key];
-                if (!versions) continue;
-                setDownload(ct => Object.assign(ct, { type: key }));
-                for (const version in versions) {
-                    if (Object.prototype.hasOwnProperty.call(versions, version)) {
-                        const data = versions[version];
-                        await downloadResourceFile(data.url, data.hash).then(async zip => {
-
-                            setDownload(ct => Object.assign(ct, { count: ct.count + 1, size: ct.size + data.size }));
-                        }).catch(error => {
-                            versionMapInfo.count--;
-                            versionMapInfo.size -= data.size;
-                            console.error(error);
-                        })
-                        setDescription(`${i18next.t("appLoader.resources.installUpdate")} - ${download().type} \n ${download().count} / ${versionMapInfo.count} , ${fileSize(download().size)} / ${fileSize(versionMapInfo.size)}`);
-                    }
-                }
-            }
+        for (const update of versionMap) {
+            let file: JSZip;
+            await downloadResourceFile(update)
+                .then(res => file = res)
+                .then(() => parseMusicCollection(file))
+                .then(a => a)
+                .then(() => resources.music.installed.push(update));
+            //.then(async res => { fileInfo = JSON.parse(await res.file("information.json")?.async("string") || "{}") })
+            setDownload(ct => Object.assign(ct, { count: ct.count++, size: ct.size += 0 }));
         }
+        localStorage.setItem("resources", JSON.stringify(resources));
         resolve();
     });
 

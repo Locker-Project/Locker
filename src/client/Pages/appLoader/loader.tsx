@@ -33,7 +33,7 @@ const Loader: solid.Component = () => {
     const [fadeOut, setFadeOut] = solid.createSignal<boolean>(false);
     let rejectFunc = () => { };
 
-    const functions: Array<FunctionWithType<solid.Setter<string>>> = [initStorageFromLoader, loadConfigFromLoader, setupAudioFromLoader /* uptdateResourcesFromLoader */];
+    const functions: Array<FunctionWithType<solid.Setter<string>>> = [initStorageFromLoader, loadConfigFromLoader, setupAudioFromLoader, uptdateResourcesFromLoader ];
     const interactionList = [
         { type: "cancel", label: t("appLoader.cancel"), func: () => rejectFunc() },
         { type: "ok", label: t("appLoader.ok"), func: () => { } },

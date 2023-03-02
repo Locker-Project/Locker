@@ -3,10 +3,6 @@ import i18next from "i18next";
 import { setGameConfigStore } from "State/gameCondigStore";
 import { getGameConfig } from "Utils/getConfig/getConfig";
 
-interface loginData extends webSocketReturnValue {
-    data: wsUser
-}
-
 function loadConfigFromLoader(setTitle: Setter<string>, setDescription: Setter<string>) {
     return new Promise<void>((resolve, reject) => {
 
