@@ -3,7 +3,5 @@ type versionData = {
 }
 
 interface updateMap {
-    background: versionData
-    behavior: versionData
-    music: versionData
+    updates: Array<string>
 }
