@@ -18,12 +18,31 @@
         }
     }
 
-    .textCount.active {
-        position: absolute;
-        top: 0;
-        right: 4px;
-        color: $secondaryText;
-        background-color: $transparent-bg;
-        font-size: 0.6em;
+    .textCount {
+        display: none;
+
+        &.active {
+            position: absolute;
+            top: 0;
+            right: 4px;
+            color: $secondaryText;
+            background-color: $transparent-bg;
+            font-size: 0.6em;
+        }
+    }
+
+    .placeholder {
+        display: none;
+
+        &.active {
+            position: absolute;
+            top: 0;
+            left: 4px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: $secondaryText;
+        }
+
     }
 }

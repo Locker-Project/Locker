@@ -3,32 +3,23 @@ import clsx from "clsx";
 
 
 import style from "./NormalInput.module.scss";
+import { useInputModel } from "Components/Functions/ActivateModel/activateModel";
 
-declare module "solid-js" {
-    namespace JSX {
-        interface Directives {
-            normalInputModel: boolean;
-        }
-    }
-}
+
 
 const NormalInput: solid.Component<solid.JSX.InputHTMLAttributes<HTMLInputElement>> = (props) => {
-    const flag = props.maxLength;
+    const lengthFlag = props.maxLength;
     const [length, setLength] = solid.createSignal(0);
 
-    function normalInputModel(el: HTMLInputElement) {
-        solid.onMount(() => {
-            el.addEventListener("input", () => setLength(el.value.length))
-        });
-        solid.onCleanup(() => {
-            el.removeEventListener("input", () => setLength(el.value.length))
-        })
-    }
+    const inputModel = useInputModel();
 
     return (
         <div class={style.inputContainer}>
-            <input {...props} class={clsx(style.input, props.class)} use:normalInputModel />
-            <span class={clsx(style.textCount, flag && style.active)}>
+            <input {...props} class={clsx(style.input, props.class)} placeholder={""} use:inputModel={[length, setLength]} />
+            <span class={clsx(style.placeholder, !length() && style.active)}>
+                {props.placeholder}
+            </span>
+            <span class={clsx(style.textCount, lengthFlag && style.active)}>
                 {length} / {props.maxLength}
             </span>
         </div>
