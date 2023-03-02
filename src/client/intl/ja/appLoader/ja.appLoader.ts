@@ -1,6 +1,7 @@
 import JAAppLoaderAudioTranslation from "./ja.appLoaderAudio";
 import JAAppLoaderStorageTranslation from "./ja.appLoaderStorage";
 import JAAppLoaderWebSocketTranslation from "./ja.appLoaderWebsocket";
+import JAAppLoaderUpdateTranslation from "./ja.update";
 
 const JAAppLoaderTranslation = {
     "cancel": "中止",
@@ -16,7 +17,8 @@ const JAAppLoaderTranslation = {
     "ready": "読み込みが完了しました。間もなく開始します...",
     "storage": JAAppLoaderStorageTranslation,
     "websocket": JAAppLoaderWebSocketTranslation,
-    "audio": JAAppLoaderAudioTranslation
+    "audio": JAAppLoaderAudioTranslation,
+    "resources": JAAppLoaderUpdateTranslation
 }
 
 export default JAAppLoaderTranslation;
