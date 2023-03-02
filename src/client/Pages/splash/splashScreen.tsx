@@ -8,6 +8,7 @@ import TranslateText from "Components/TranslateText/translateText";
 import splashImage1 from "Assets/Images/splash-logo-1.png";
 
 import style from "./splashScreen.module.scss";
+import clsx from "clsx";
 
 
 const SplashScreen: solid.Component = () => {
@@ -51,6 +52,12 @@ const SplashScreen: solid.Component = () => {
 
     return (
         <div class={style.splashScreen} ref={containerRef}>
+            <div class={style.lineContainer}>
+                <div class={clsx(style.dot, style.top)}></div>
+                <div class={clsx(style.dot, style.bottom)}></div>
+                <div class={clsx(style.bar, style.horizonal)}></div>
+                <div class={clsx(style.bar, style.vertical)}></div>
+            </div>
             <div class={style.content}>
                 <div class={style.logo} ref={logoRef} />
                 <div class={style.cautionText} ref={textRef}>

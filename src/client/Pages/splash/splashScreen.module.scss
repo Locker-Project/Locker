@@ -13,6 +13,103 @@
         width: 100%;
     }
 
+    .lineContainer {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        /* top: 50%;
+                left: 50%; */
+
+        .dot {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                height: 8px;
+                width: 8px;
+                background-color: $darkBorder;
+            }
+        }
+
+        .top {
+            &::before {
+                top: 24px;
+                left: 24px;
+            }
+
+            &::after {
+                top: 24px;
+                right: 24px;
+            }
+        }
+
+        .bottom {
+            &::before {
+                bottom: 24px;
+                left: 24px;
+            }
+
+            &::after {
+                bottom: 24px;
+                right: 24px;
+            }
+        }
+
+        .bar {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                height: 1px;
+                background-color: $darkBorder;
+            }
+        }
+
+        .horizonal {
+
+            &::before,
+            &::after {
+                width: calc(100% - 64px);
+
+                left: 32px;
+            }
+
+            &::before {
+                top: 31px;
+            }
+
+            &::after {
+                bottom: 31px;
+            }
+        }
+
+        .vertical {
+
+            &::before,
+            &::after {
+                width: 1px;
+                height: calc(100% - 64px);
+                top: 32px;
+            }
+
+            &::before {
+                left: 31px;
+            }
+
+            &::after {
+                right: 31px;
+            }
+        }
+    }
+
     .content {
         position: absolute;
         height: 100%;
