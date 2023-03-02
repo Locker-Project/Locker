@@ -38,6 +38,7 @@
         filter: brightness(0.8);
         transform: scale(0.98);
         box-shadow: 0 0 4px 2px $accentColor;
+        margin: 2px 4px;
     }
 
     &:focus-visible {
