@@ -2,7 +2,9 @@ import * as solid from "solid-js";
 import { useBeforeLeave, useLocation, useNavigate } from "@solidjs/router";
 import { BsArrowUp, BsArrowUpLeft, BsGear } from "solid-icons/bs";
 import { useTransContext } from "@mbarzda/solid-i18next";
+import clsx from "clsx";
 
+import { useButtonModel } from "Components/Functions/ActivateModel/activateModel";
 import GlitchImage from "Components/GlitchImage/glitchImage";
 import TranslateText from "Components/TranslateText/translateText";
 
@@ -14,10 +16,6 @@ import buttonModel from "Components/Functions/Models/ButtonModel";
 import version from "Assets/StaticInfo/version.json";
 
 import style from "./title.module.scss";
-import clsx from "clsx";
-import activateModel from "Components/Functions/ActivateModel/activateModel";
-
-
 
 
 const Title: solid.Component = () => {
@@ -27,7 +25,7 @@ const Title: solid.Component = () => {
 
     let containerRef: HTMLDivElement | undefined;
 
-    activateModel(buttonModel);
+    const buttonModel = useButtonModel();
 
     function navigateHome() {
         navigate("/home");
@@ -55,8 +53,8 @@ const Title: solid.Component = () => {
             <div class={style.titleText}>
                 <h1 class={clsx("shadowTitle", style.titleName)} >Locker</h1>
                 <div class={style.buttons}>
-                    <solid.Show when={canBegin()} fallback={<button use:buttonModel={{handleClick}}><TranslateText key="title.needReload" /></button>}>
-                        <button onClick={navigateHome} use:buttonModel={{handleClick}}>
+                    <solid.Show when={canBegin()} fallback={<button use:buttonModel={{ handleClick }}><TranslateText key="title.needReload" /></button>}>
+                        <button onClick={navigateHome} use:buttonModel={{ handleClick }}>
                             <TranslateText key="title.start" />
                         </button>
                     </solid.Show>
@@ -65,7 +63,7 @@ const Title: solid.Component = () => {
             <div class={style.footer}>
                 <p>Locker {version.version}<br /> ©{new Date().getFullYear()} Locker Project All rights reserved. Designed by Mksk.</p>
                 <span><TranslateText key="title.language" /></span>
-                <button class={`iconWrapper ${style.settings}`} onClick={() => { setShowModal(m => !m) }} use:buttonModel={{handleClick}} >
+                <button class={`iconWrapper ${style.settings}`} onClick={() => { setShowModal(m => !m) }} use:buttonModel={{ handleClick }} >
                     <BsGear class={style.settingsIcon} />
                 </button>
             </div>
