@@ -15,7 +15,7 @@ function initDatabase() {
 
             let stores: { [key: string]: string } = {};
             for (const key of databaseInfo.databases) {
-                stores[key] = "++index";
+                stores[key] = "++index, id";
             }
 
             db.version(db.verno + 1).stores({ ...stores });
