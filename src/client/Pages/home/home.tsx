@@ -6,7 +6,7 @@ import { useTransContext } from "@mbarzda/solid-i18next";
 import style from "./home.module.scss";
 
 
-import Header from "../../Components/Header/header";
+import Header from "Components/Header/header";
 import HomePageFooter from "./footer/homePageFooter";
 import MenuRenderer from "./menuRenderer";
 import { hideUi, setHideUi } from "./homeState";
@@ -34,17 +34,12 @@ const Home: solid.Component = () => {
         if (hideUi()) setHideUi(false);
     }
 
-    solid.createEffect(() => {
-        console.log(hideUi());
-        
-    })
-
     return (
         <div class={style.home} ref={containerRef} classList={{ blackOut: blackOut(), fadeOut: hideUi() }} onClick={handleClick}>
             <Header title={t("menu.title").toString()} />
             <main class={style.main}>
                 {/* <MenuRenderer /> */}
-                <MenuContent/>
+                <MenuContent />
             </main>
             <HomePageFooter />
         </div >
