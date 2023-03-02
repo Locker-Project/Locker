@@ -20,10 +20,7 @@
     @media screen and (max-height:540px),
     (max-width:640px) {
         pointer-events: none;
-
-        &:not(.noBlur) {
-            @include blur(20px);
-        }
+        @include blur(20px);
     }
 
     .modal {
