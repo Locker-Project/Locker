@@ -1,0 +1,59 @@
+@import "../../../App/mixin.scss";
+
+.inputContainer {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px solid $darkBorder;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        width: 0;
+        background-color: $borderColor;
+        transition: 0.2s;
+    }
+
+    &:hover {
+        &::before {
+            width: 100%;
+        }
+    }
+
+    &:focus,&:focus-within {
+        &::before {
+            width: 100%;
+        }
+    }
+
+
+    .textCount {
+        display: none;
+
+        &.active {
+            position: absolute;
+            top: 0;
+            right: 4px;
+            color: $secondaryText;
+            background-color: $transparent-bg;
+            font-size: 0.6em;
+        }
+    }
+
+    .placeholder {
+        display: none;
+
+        &.active {
+            position: absolute;
+            top: 0;
+            left: 4px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: $secondaryText;
+        }
+
+    }
+}
