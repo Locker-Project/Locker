@@ -32,6 +32,10 @@
     &:hover {
         background-color: $inputForegroundColor;
         box-shadow: 0 0 4px 1px $borderColor;
+
+        span::before {
+            width: 100%;
+        }
     }
 
     &:active {
@@ -43,5 +47,21 @@
 
     &:focus-visible {
         box-shadow: 0 0 4px 2px $activeColor;
+    }
+
+    span {
+        position: relative;
+        transition: 0.2s;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 0;
+            background-color: $borderColor;
+            transition: 0.2s;
+        }
     }
 }
