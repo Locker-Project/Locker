@@ -60,9 +60,26 @@
         background-color: $darkGray;
         border: 2px solid $darkBorder;
 
+        transition: 0.2s;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 0;
+            background-color: $accentColor;
+            transition: 0.2s;
+        }
+
         &:hover {
             background-color: $grayBackground;
             box-shadow: 0 0 4px 1px $borderColor;
+
+            &::before {
+                width: 100%;
+            }
         }
 
         &:active {

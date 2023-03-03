@@ -18,8 +18,8 @@ const Home: solid.Component = () => {
     const navigate = useNavigate();
     const [blackOut, setBlackOut] = solid.createSignal<boolean>(false);
 
-
     let containerRef: HTMLDivElement | undefined;
+    let animationTimeout: NodeJS.Timeout;
 
     useBeforeLeave(async (e) => {
         if (!e.defaultPrevented) e.preventDefault();
@@ -28,11 +28,22 @@ const Home: solid.Component = () => {
         setTimeout(() => {
             e.retry(true);
         }, 1000)
-    })
+    });
 
     function handleClick() {
         if (hideUi()) setHideUi(false);
     }
+
+    solid.onMount(() => {
+        if (containerRef) containerRef.style.animation = "blackIn 0.5s linear forwards";
+        animationTimeout = setTimeout(() => {
+            if (containerRef) containerRef.style.animation = "";
+        }, 500);
+    });
+
+    solid.onCleanup(() => {
+        clearTimeout(animationTimeout);
+    });
 
     return (
         <div class={style.home} ref={containerRef} classList={{ blackOut: blackOut(), fadeOut: hideUi() }} onClick={handleClick}>
