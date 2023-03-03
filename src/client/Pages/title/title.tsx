@@ -24,6 +24,7 @@ const Title: solid.Component = () => {
     const [fadeOut, setFadeOut] = solid.createSignal<boolean>(false);
 
     let containerRef: HTMLDivElement | undefined;
+    let animationTimeout: NodeJS.Timeout;
 
     const buttonModel = useButtonModel();
 
@@ -44,6 +45,16 @@ const Title: solid.Component = () => {
         }, 1000)
     });
 
+    solid.onMount(() => {
+        if (containerRef) containerRef.style.animation = "blackIn 1s linear forwards";
+        animationTimeout = setTimeout(() => {
+            if (containerRef) containerRef.style.animation = "";
+        }, 1000);
+    });
+
+    solid.onCleanup(() => {
+        clearTimeout(animationTimeout);
+    });
 
     return (
         <div class={style.title} ref={containerRef} classList={{ blackOut: fadeOut() }}>
