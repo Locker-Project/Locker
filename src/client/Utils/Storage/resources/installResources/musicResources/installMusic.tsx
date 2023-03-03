@@ -19,6 +19,7 @@ function installMusic(zip: JSZip) {
         const fileMapJsonData: MusicAssetMap = json5.parse(await zip.file("information.json")!.async("string"));
 
         const assetData = {
+            made: fileMapJsonData.made,
             metadata: {
                 title: fileMapJsonData.title,
                 composer: fileMapJsonData.composer,
@@ -35,10 +36,10 @@ function installMusic(zip: JSZip) {
                 mime: "image/png"
             },
             chart: {
-                easy: json5.parse(await zip.file("easy.json")?.async("string") || "{}"),
-                normal: json5.parse(await zip.file("normal.json")?.async("string") || "{}"),
-                hard: json5.parse(await zip.file("hard.json")?.async("string") || "{}"),
-                expert: json5.parse(await zip.file("expert.json")?.async("string") || "{}"),
+                easy: json5.parse(await zip.file("easy.json")?.async("string") || "false"),
+                normal: json5.parse(await zip.file("normal.json")?.async("string") || "false"),
+                hard: json5.parse(await zip.file("hard.json")?.async("string") || "false"),
+                expert: json5.parse(await zip.file("expert.json")?.async("string") || "false"),
             },
             id: uuidv4(),
             installed: Date.now(),
@@ -48,7 +49,7 @@ function installMusic(zip: JSZip) {
         await db.open();
 
         await db.table(databaseInfo.databases[0] || "music")
-            .add(assetData)
+            .put(assetData)
         db.close();
         resolve();
 
