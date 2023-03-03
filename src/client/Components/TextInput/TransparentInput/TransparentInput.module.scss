@@ -31,6 +31,7 @@
 
     .textCount {
         display: none;
+        pointer-events: none;
 
         &.active {
             position: absolute;
@@ -44,6 +45,7 @@
 
     .placeholder {
         display: none;
+        pointer-events: none;
 
         &.active {
             position: absolute;
