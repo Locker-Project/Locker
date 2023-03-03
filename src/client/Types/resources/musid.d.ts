@@ -12,3 +12,29 @@ interface MusicAssetMap {
     }
     license: "string"
 }
+
+
+interface musicAsset {
+    made: "official" | "fanmade"
+    metadata: {
+        title: string
+        composer: string
+        bpm: string
+        time: number
+        demo: {
+            start: number
+            end: number
+        }
+    }
+    music: {
+        data: ArrayBuffer
+        mime: string
+    }
+    thumbnail: {
+        data: ArrayBuffer
+        mime: string
+    }
+    chart: {
+        [key: "easy" | "normal" | "hard" | "expert"]: gameChart | false
+    }
+}
