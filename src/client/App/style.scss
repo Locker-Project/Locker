@@ -161,3 +161,13 @@ p {
         filter: brightness(0);
     }
 }
+
+@keyframes blackIn {
+    from {
+        filter: brightness(0);
+    }
+
+    to {
+        filter: brightness(1);
+    }
+}
