@@ -1,0 +1,90 @@
+@import "../../App/mixin.scss";
+
+.musicSelect {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px 32px 1fr;
+
+}
+
+.toolbar {
+    height: 32px;
+    padding: 0 8px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr repeat(2, minmax(25%, auto));
+    column-gap: 8px;
+
+    span,
+    label {
+        white-space: nowrap;
+    }
+
+    .navigateButton {
+        display: flex;
+        align-items: center;
+        position: relative;
+        transition: 0.2s;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 0;
+            background-color: $borderColor;
+            transition: 0.2s;
+        }
+
+        &:hover {
+            &::before {
+                width: 100%;
+            }
+        }
+
+        &:active {
+            filter: brightness(0.8);
+            transform: scale(0.98);
+        }
+    }
+
+    .searchContainer>div,
+    .searchContainer input {
+        width: 100%;
+    }
+
+    .filterContainer {
+        display: flex;
+        flex-direction: row;
+        column-gap: 4px;
+        overflow: auto;
+        padding: 4px 0;
+    }
+
+    .filterRadio {
+        background-color: $inputBackgroundColor;
+        border: 1px solid $darkBorder;
+        padding: 0 4px;
+
+        &:hover {
+            box-shadow: 0 0 4px 2px $accentColor;
+        }
+
+        &:active {
+            filter: brightness(0.8);
+            transform: scale(0.98);
+        }
+
+        &:focus-visible {
+            box-shadow: 0 0 4px 2px $activeColor;
+        }
+
+        &.active {
+            border-color: $accentColor;
+            background-color: $inputForegroundColor;
+        }
+    }
+}
