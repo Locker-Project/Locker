@@ -12,6 +12,7 @@ import { selectedMusic } from "../musicSelectState";
 import style from "./musicDetails.module.scss"
 import upperCaseFirstCharacter from "Utils/upperCaseFirstCharacter/upperCaseFirstCharacter";
 import LevelButton from "./levelButton";
+import { gameConfigStore } from "State/gameCondigStore";
 
 
 const MusicDetails: solid.Component = () => {
@@ -28,7 +29,7 @@ const MusicDetails: solid.Component = () => {
         fanmade: t("musicSelect.details.fanmadeMusic")
     }
 
-    const levelNames = ["easy", "normal", "hard", "expert"]
+    const levelNames: Array<difficulty> = ["easy", "normal", "hard", "expert"]
 
     function playMusic() {
         if (!selectedMusic().hasData) return;
@@ -62,9 +63,11 @@ const MusicDetails: solid.Component = () => {
 
         new Promise<void>((resolve) => {
             //set new audio
+            const volume = gameConfigStore.ready && gameConfigStore.data.audio.musicVolume || 0.8;
             setTimeout(() => {
                 demoAudio = new Howl({
                     src: joinMimeAndArrayBuffer(data.music),
+                    volume: volume,
                     loop: true,
                     sprite: {
                         music: [data.metadata.demo.start - 3000, data.metadata.demo.end + 3000]

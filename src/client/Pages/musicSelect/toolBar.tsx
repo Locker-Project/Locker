@@ -10,7 +10,7 @@ import style from "./musicSelect.module.scss";
 import TranslateText from "Components/TranslateText/translateText";
 import { useButtonModel } from "Components/Functions/ActivateModel/activateModel";
 import TransparentInput from "Components/TextInput/TransparentInput/TransparentInput";
-import { filter, setFilter, setSearchText } from "./musicSelectState";
+import { musicFilter, setMusicFilter, setMusicSearchText } from "./musicSelectState";
 
 
 const MusicSelectToolbar: solid.Component = () => {
@@ -40,15 +40,15 @@ const MusicSelectToolbar: solid.Component = () => {
             </button>
             <div></div>
             <div class={style.searchContainer}>
-                <TransparentInput class={style.search} placeholder={t("musicSelect.search").toString()} onInput={(e) => setSearchText(e.currentTarget.value)} />
+                <TransparentInput class={style.search} placeholder={t("musicSelect.search").toString()} onInput={(e) => setMusicSearchText(e.currentTarget.value)} />
             </div>
             <div class={style.filterContainer}>
                 <span><TranslateText key="musicSelect.filter" /></span>
                 <solid.For each={filterList}>
                     {
                         content => (
-                            <label class={clsx(style.filterRadio, (content.value == filter()) && style.active)} use:buttonModel={{}}>
-                                <input type="radio" name={filterIdentifier} value={content.value} onChange={() => setFilter(content.value)} />
+                            <label class={clsx(style.filterRadio, (content.value == musicFilter()) && style.active)} use:buttonModel={{}}>
+                                <input type="radio" name={filterIdentifier} value={content.value} onChange={() => setMusicFilter(content.value)} />
                                 {content.label}
                             </label>
                         )

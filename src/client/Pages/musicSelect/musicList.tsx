@@ -2,7 +2,7 @@ import * as solid from "solid-js";
 import Dexie, { Table } from "dexie";
 
 import databaseInfo from "Assets/StaticInfo/databaseinfo.json";
-import { filter, searchText, setSelectedMusic } from "./musicSelectState";
+import { musicFilter, musicSearchText, setSelectedMusic } from "./musicSelectState";
 import MusicCard from "./musicCard/musicCard";
 import { getSelectedMusic } from "Utils/getConfig/getConfig";
 
@@ -33,15 +33,15 @@ const MusicList: solid.Component = () => {
 
     solid.createEffect(async () => {
         //keep value and activate reactivity
-        const f = filter();
-        const t = searchText().toLowerCase();
+        const f = musicFilter();
+        const t = musicSearchText().toLowerCase();
 
         if (!table) return;
         else {
             //filter official or fanmade
             let musicData: Array<musicAsset> = await table.where("made").anyOf(filterList[f]).toArray();
             //filter with search text
-            if (searchText()) musicData = musicData.filter(m => m.metadata.title.toLowerCase().includes(t));
+            if (musicSearchText()) musicData = musicData.filter(m => m.metadata.title.toLowerCase().includes(t));
             setMusics(musicData);
         }
     })

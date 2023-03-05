@@ -47,7 +47,7 @@
         position: absolute;
         height: 100%;
         width: 100%;
-        pointer-events: none;
+        //pointer-events: none;
         overflow: hidden;
 
         img {
@@ -75,7 +75,13 @@
             align-items: center;
             padding: 0 8px;
             height: 100%;
+            white-space: nowrap;
             background-image: linear-gradient(to right, $transparent-bg, transparent);
+
+            h2 {
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
         }
 
         .subTitle {
