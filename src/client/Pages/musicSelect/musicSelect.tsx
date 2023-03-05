@@ -31,10 +31,10 @@ const MusicSelect: solid.Component = () => {
     });
 
     solid.onMount(() => {
-        if (containerRef) containerRef.style.animation = "blackIn 0.5s linear forwards";
+        if (containerRef) containerRef.style.animation = "fadeIn 0.3s linear forwards";
         animationTimeout = setTimeout(() => {
             if (containerRef) containerRef.style.animation = "";
-        }, 500);
+        }, 300);
     });
 
     solid.onCleanup(() => {
