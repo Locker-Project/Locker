@@ -26,6 +26,7 @@ function installMusic(zip: JSZip) {
                 bpm: fileMapJsonData.showBpm,
                 time: fileMapJsonData.time,
                 demo: fileMapJsonData.demo,
+                license: fileMapJsonData.license
             },
             music: {
                 data: await zip.file("audio.mp3")?.async("arraybuffer"),
