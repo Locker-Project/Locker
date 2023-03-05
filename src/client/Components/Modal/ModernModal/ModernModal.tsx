@@ -1,12 +1,15 @@
-import NormalButton from "Components/Button/normalButton/normalButton";
+import clsx from "clsx";
 import * as solid from "solid-js";
 import { Transition } from "solid-transition-group";
+
+import NormalButton from "Components/Button/normalButton/normalButton";
 import playAudio from "Utils/PlayAudio/playAudio";
 
 import style from "./ModernModal.module.scss";
 
 import openModal from "Assets/Sounds/ui/openModal.m4a";
 import closeModal from "Assets/Sounds/ui/closeModal.m4a";
+
 
 
 interface modalProps {
@@ -101,7 +104,7 @@ const ModernModal: solid.Component<modalProps> = (props) => {
     return (
         <Transition onEnter={containerEnter} onExit={containerExit}>
             <solid.Show when={props.show ?? true}>
-                <div {...props.containerProps} class={`${style.modalWrapper} ${props.noBlur && style.noBlur} ${props.containerProps?.class || ""}`} ref={containerRef} onClick={clickBackground}>
+                <div {...props.containerProps} class={clsx(style.modalWrapper, props.noBlur, props.containerProps?.class)} ref={containerRef} onClick={clickBackground}>
                     <div class={style.modal} ref={innerRef} onclick={(e) => e.stopPropagation()}>
                         <h1>{props.title}</h1>
                         <hr />
