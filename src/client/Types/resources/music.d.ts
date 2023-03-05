@@ -25,6 +25,7 @@ interface musicAsset {
             start: number
             end: number
         }
+        license: string
     }
     music: {
         data: ArrayBuffer
@@ -35,6 +36,6 @@ interface musicAsset {
         mime: string
     }
     chart: {
-        [key: "easy" | "normal" | "hard" | "expert"]: gameChart | false
+        [key: string]: gameChart | false
     }
 }
