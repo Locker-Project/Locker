@@ -45,6 +45,7 @@ body {
 * {
     box-sizing: border-box;
     min-width: 0;
+    min-height: 0;
 }
 
 a {
@@ -117,6 +118,7 @@ p {
     text-shadow: 1px 1px 24px $secondaryText;
     filter: drop-shadow(0 0 4px $secondaryText);
 }
+
 
 @keyframes fadeIn {
     from {
