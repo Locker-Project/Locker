@@ -6,6 +6,7 @@ import Loader from "Pages/appLoader/loader";
 import Title from "Pages/title/title";
 import Setup from "Pages/setup/setup";
 import Home from "Pages/home/home";
+import MusicSelect from "Pages/musicSelect/musicSelect";
 
 
 const PageRouter: solid.Component = () => {
@@ -17,6 +18,7 @@ const PageRouter: solid.Component = () => {
             <Route path={"/title"} element={<Title />} />
             <Route path={"/setup/*"} element={<Setup />} />
             <Route path={"/home"} element={<Home />} />
+            <Route path={"/select"} element={<MusicSelect />} />
         </Routes>
     )
 }
