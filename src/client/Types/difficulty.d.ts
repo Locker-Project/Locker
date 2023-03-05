@@ -1,0 +1,1 @@
+type difficulty = "easy" | "normal" | "hard" | "expert";
