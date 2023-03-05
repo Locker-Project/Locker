@@ -9,6 +9,7 @@ import style from "./musicSelect.module.scss";
 import Header from "Components/Header/header";
 import MusicSelectToolbar from "./toolBar";
 import MusicList from "./musicList";
+import MusicDetails from "./musicDetails/musicDetails";
 
 
 const MusicSelect: solid.Component = () => {
@@ -47,6 +48,7 @@ const MusicSelect: solid.Component = () => {
             <MusicSelectToolbar />
             <div class={style.content}>
                 <MusicList />
+                <MusicDetails />
             </div>
         </div >
     )

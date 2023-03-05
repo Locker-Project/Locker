@@ -2,8 +2,11 @@ import * as solid from "solid-js";
 import Dexie, { Table } from "dexie";
 
 import databaseInfo from "Assets/StaticInfo/databaseinfo.json";
-import { filter, searchText } from "./musicSelectState";
+import { filter, searchText, setSelectedMusic } from "./musicSelectState";
 import MusicCard from "./musicCard/musicCard";
+import { getSelectedMusic } from "Utils/getConfig/getConfig";
+
+import style from "./musicSelect.module.scss";
 
 const MusicList: solid.Component = () => {
 
@@ -18,10 +21,14 @@ const MusicList: solid.Component = () => {
     ]
 
     solid.onMount(async () => {
+        const selectedMusicData = getSelectedMusic();
         const db = new Dexie(databaseInfo.DBName);
         await db.open();
         table = db.table(databaseInfo.databases[0] || "music");
         setMusics(await table.toArray());
+        const array = (await table.toArray());
+        const data = array.find((d: musicAsset) => d.metadata.title == selectedMusicData.selected) || array[0];
+        setSelectedMusic({ hasData: true, data })
     });
 
     solid.createEffect(async () => {
@@ -40,7 +47,7 @@ const MusicList: solid.Component = () => {
     })
 
     return (
-        <div>
+        <div class={style.musicList}>
             <solid.For each={musics()}>
                 {
                     music => <MusicCard data={music} />
