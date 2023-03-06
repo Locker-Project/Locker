@@ -18,7 +18,7 @@ declare module "solid-js" {
     }
 }
 
-const HomeHeader: solid.Component<{ title: solid.JSXElement }> = (props) => {
+const Header: solid.Component<{ title: solid.JSXElement }> = (props) => {
     let containerRef: HTMLDivElement | undefined;
 
     const [clock, setClock] = solid.createSignal(new Date());
@@ -90,4 +90,4 @@ const HomeHeader: solid.Component<{ title: solid.JSXElement }> = (props) => {
     )
 }
 
-export default HomeHeader;
+export default Header;
