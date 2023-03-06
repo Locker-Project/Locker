@@ -5,14 +5,16 @@ import { setHideUi } from "../homeState";
 import FooterContent from "./footerContent";
 
 import style from "./homePageFooter.module.scss";
+import { useNavigate } from "@solidjs/router";
 
 
 const HomePageFooter: solid.Component = () => {
 
     const [t, intl] = useTransContext();
+    const navigate = useNavigate();
 
     const footerMenu = [
-        { element: <FooterContent icon={<BsGear />} label={t("menu.settings")} onClick={() => { }} /> },
+        { element: <FooterContent icon={<BsGear />} label={t("menu.settings")} onClick={() => { navigate("/settings") }} /> },
         { element: <FooterContent icon={<BsDeviceHdd />} label={t("menu.resources")} onClick={() => { }} /> },
         { element: <FooterContent icon={<BsInfoCircle />} label={t("menu.about")} onClick={() => { }} /> },
         { element: <FooterContent icon={<BsBook />} label={t("menu.story")} onClick={() => { }} /> },

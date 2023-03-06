@@ -16,7 +16,7 @@ import MenuContent from "./menuContent";
 const Home: solid.Component = () => {
     const [t] = useTransContext();
     const navigate = useNavigate();
-    const [blackOut, setBlackOut] = solid.createSignal<boolean>(false);
+    const [fadeOut, setFadeOut] = solid.createSignal<boolean>(false);
 
     let containerRef: HTMLDivElement | undefined;
     let animationTimeout: NodeJS.Timeout;
@@ -24,10 +24,10 @@ const Home: solid.Component = () => {
     useBeforeLeave(async (e) => {
         if (!e.defaultPrevented) e.preventDefault();
         if (!containerRef) return;
-        setBlackOut(true);
+        setFadeOut(true);
         setTimeout(() => {
             e.retry(true);
-        }, 1000)
+        }, 300)
     });
 
     function handleClick() {
@@ -46,7 +46,7 @@ const Home: solid.Component = () => {
     });
 
     return (
-        <div class={style.home} ref={containerRef} classList={{ blackOut: blackOut(), fadeOut: hideUi() }} onClick={handleClick}>
+        <div class={style.home} ref={containerRef} classList={{  fadeOut: hideUi()||fadeOut() }} onClick={handleClick}>
             <Header title={t("menu.title").toString()} />
             <main class={style.main}>
                 {/* <MenuRenderer /> */}
