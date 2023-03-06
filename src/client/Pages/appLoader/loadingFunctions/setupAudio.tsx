@@ -8,13 +8,17 @@ function setupAudioFromLoader(setTitle: Setter<string>, setDescription: Setter<s
         setDescription("appLoader.audio.description")
         const data = getGameConfig();
         let volume = data.audio.masterVolume || 1;
+        let stereo = data.audio.audioStereo - 1;
         try {
             volume = data.audio.masterVolume;
+            stereo = data.audio.audioStereo - 1;
         } catch (e) {
             console.log(e);
             volume = 1;
+            stereo = 0;
         }
-        Howler.volume(volume)
+        Howler.volume(volume);
+        Howler.stereo(stereo);
         resolve();
     })
 }
