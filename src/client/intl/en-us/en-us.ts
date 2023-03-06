@@ -21,7 +21,7 @@ const ENUStranslation = {
     menu: ENUSMenuTranslation,
     head: ENUSHeadTranslation,
     musicSelect: ENUSMusicSelectTranslation,
-    settingsPage: ENUSSettingsPage,
+    settings: ENUSSettingsPage,
     splashScreen: ENUSSplashScreenTranslation,
     multiPlay: ENUSMultiPlayerTranslation,
     crashHandler: ENUSCrashHandlerTranslation,

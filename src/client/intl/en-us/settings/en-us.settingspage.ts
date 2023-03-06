@@ -1,4 +1,5 @@
 const ENUSSettingsPage = {
+    "title": "Settings",
     "general": {
         "title": "General",
         "language": {
@@ -16,26 +17,26 @@ const ENUSSettingsPage = {
             "button": "View"
         },
         "credit": {
-            "name":"Credits",
-            "description":"Credit \n Programmed by Mksk \n Music by Rae/Goners \n Illustlation by てぬ"
+            "name": "Credits",
+            "description": "Credit \n Programmed by Mksk \n Music by Rae/Goners \n Illustlation by てぬ"
         }
     },
     "gameplay": {
         "title": "Gameplay",
-        "keybind":{
-            "name":"Key binds",
+        "keybind": {
+            "name": "Key binds",
             "description": "Set key settings while playing music game."
         },
-        "liveVisualization":{
-            "name":"Live Visualization",
-            "description":"Set show prediction/accuracy on UI while playing music game."
+        "liveVisualization": {
+            "name": "Live Visualization",
+            "description": "Set show prediction/accuracy on UI while playing music game."
         },
-        "scrollSpeed":{
-            "name":"ScrollSpeed",
-            "description":"Adjust notes scroll speed."
+        "scrollSpeed": {
+            "name": "ScrollSpeed",
+            "description": "Adjust notes scroll speed."
         },
-        "offset":{
-            "name":"Offset",
+        "offset": {
+            "name": "Offset",
             "description": "Adjust the position of the notes relative to the music. \n If there are too many Future(Fast) notes, adjust the value to minus, and if there are too many Past(Late) notes, adjust the value to plus."
         },
         "judgeTiming": {
@@ -45,13 +46,13 @@ const ENUSSettingsPage = {
     },
     "graphics": {
         "title": "Graphics",
-        "gameResolution":{
-            "name":"Game 3D resoution",
+        "gameResolution": {
+            "name": "Game 3D resoution",
             "description": "Adjust quality of game 3D rendering.",
         },
-        "gameAntiAliasing":{
-            "name":"Game Anti-Aliasing",
-            "description":"Set Anti-Aliasing behavior of game rendering."
+        "gameAntiAliasing": {
+            "name": "Game Anti-Aliasing",
+            "description": "Set Anti-Aliasing behavior of game rendering."
         },
         "gameAASampling": {
             "name": "Game Anti-Aliasing level",

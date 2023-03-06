@@ -23,7 +23,7 @@ const JAtranslation = {
     menu: JAMenuTranslation,
     head: JAHeadTranslation,
     musicSelect: JAMusicSelectTranslation,
-    settingsPage: JASettingsPage,
+    settings: JASettingsPage,
     editor: JAEditorTranslation,
     splashScreen: JASplashScreenTranslation,
     multiPlay: JAMultiPlayerTranslation,
