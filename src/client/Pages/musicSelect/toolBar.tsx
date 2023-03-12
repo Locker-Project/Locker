@@ -47,7 +47,7 @@ const MusicSelectToolbar: solid.Component = () => {
                 <solid.For each={filterList}>
                     {
                         content => (
-                            <label class={clsx(style.filterRadio, (content.value == musicFilter()) && style.active)} use:buttonModel={{}}>
+                            <label class={clsx(style.filterRadio, (content.value == musicFilter()) && style.active)} tabIndex={0} use:buttonModel={{}}>
                                 <input type="radio" name={filterIdentifier} value={content.value} onChange={() => setMusicFilter(content.value)} />
                                 {content.label}
                             </label>

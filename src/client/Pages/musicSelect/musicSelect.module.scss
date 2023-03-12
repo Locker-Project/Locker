@@ -51,7 +51,8 @@
             transition: 0.2s;
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
             &::before {
                 width: 100%;
             }
