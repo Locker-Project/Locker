@@ -1,8 +1,8 @@
 import deleteDatabase from "../database/deleteDatabase";
-import { deleteLocalStorage } from "../LocalStorage/deleteLocalStorage";
+import { deleteAllLocalStorage, deleteLocalStorage } from "../LocalStorage/deleteLocalStorage";
 
 function clearStorage() {
-    deleteLocalStorage();
+    deleteAllLocalStorage();
     deleteDatabase();
 }
 

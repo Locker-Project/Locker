@@ -40,13 +40,12 @@ const gameConfig: gameConfig = {
         scrollSpeed: 10,
         random: false,
         fieldWall: false,
-        key: [
-            { code: "KeyD", key: "d", show: "D" },
-            { code: "KeyF", key: "f", show: "F" },
-            { code: "KeyJ", key: "j", show: "J" },
-            { code: "KeyK", key: "k", show: "k" },
-            { code: "Space", key: " ", show: "␣" }
-        ],
+        key: {
+            key2: ["KeyF", "KeyJ"],
+            key3: ["KeyF", "Space", "KeyJ"],
+            key4: ["KeyD", "KeyF", "KeyJ", "KeyK"],
+            key5: ["KeyD", "KeyF", "KeyJ", "KeyK", "Space"]
+        },
         timing: {
             offset: 0,
             judge: 0,
@@ -57,6 +56,7 @@ const gameConfig: gameConfig = {
         masterVolume: 1,
         musicVolume: 1,
         effectVolume: 1,
+        uiVolume:1,
         audioStereo: 0,
     }
 }
