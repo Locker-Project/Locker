@@ -1,0 +1,81 @@
+@import "../../../App/mixin.scss";
+
+.settingsWrapper {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 48px 1fr;
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 2px 1fr;
+        grid-template-rows: 1fr;
+        column-gap: 4px;
+
+        .list,
+        details {
+            padding: 4px;
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+        }
+
+        .list {
+            display: grid;
+            grid-auto-flow: row;
+            grid-auto-rows: 48px;
+            row-gap: 8px;
+
+            .listContent {
+                display: grid;
+                grid-template-columns: 1fr minmax(128px, 1fr);
+                grid-template-rows: 1fr;
+                align-items: center;
+                //overflow: visible;
+
+                padding: 1px 5px;
+
+                &:hover {
+                    border: 1px solid $accentColor;
+                    padding: 0 4px;
+                }
+
+                &:active {
+                    border: 1px solid $accentColor;
+                    padding: 0 4px;
+                    filter: brightness(0.8);
+                    transform: scale(0.99);
+                    background-image: linear-gradient(to right, $accentColor, transparent);
+                }
+
+                &:focus-visible {
+                    outline: none;
+                    border: 1px solid $activeColor;
+                    padding: 0 4px;
+                }
+            }
+        }
+
+        .line {
+            background-color: $darkBorder;
+        }
+
+        .details {
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 48px auto 1fr;
+            row-gap: 8px;
+            padding: 4px;
+            white-space: pre-line;
+
+            .description {
+                height: 100%;
+                width: 100%;
+                overflow: auto;
+            }
+        }
+    }
+}

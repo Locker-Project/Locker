@@ -1,0 +1,102 @@
+@import "../../App/mixin.scss";
+
+.settings {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px 32px 1fr;
+
+    .settingContent {
+        height: 100%;
+        width: 100%;
+        padding: 8px;
+    }
+}
+
+.toolbar {
+    height: 32px;
+    padding: 0 8px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr 25%;
+    column-gap: 8px;
+
+    @media screen and (max-width:640px) {
+        grid-template-columns: auto 0 20% 25%;
+    }
+
+    span,
+    label {
+        white-space: nowrap;
+    }
+
+    .navigateButton {
+        display: flex;
+        align-items: center;
+        position: relative;
+        transition: 0.2s;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 0;
+            background-color: $borderColor;
+            transition: 0.2s;
+        }
+
+        &:hover,&:focus {
+            &::before {
+                width: 100%;
+            }
+        }
+
+        &:active {
+            filter: brightness(0.8);
+            transform: scale(0.98);
+        }
+    }
+
+    .tabs {
+        display: flex;
+        flex-direction: row;
+        overflow: auto;
+        padding: 4px;
+        column-gap: 4px;
+        //background-color: $inputBackgroundColor;
+        background-image: linear-gradient(to right, $inputBackgroundColor, transparent);
+
+        .tab {
+            padding: 0 4px;
+            background-color: $inputForegroundColor;
+            border: 1px solid $darkBorder;
+
+            &:hover {
+                box-shadow: 0 0 4px 2px $accentColor;
+            }
+
+            &:active {
+                filter: brightness(0.8);
+                transform: scale(0.98);
+            }
+
+            &:focus-visible {
+                box-shadow: 0 0 4px 2px $activeColor;
+            }
+
+            &.active {
+                border-color: $borderColor;
+                background-color: $accentColor;
+            }
+        }
+    }
+
+
+    .searchContainer>div,
+    .searchContainer input {
+        width: 100%;
+    }
+}
