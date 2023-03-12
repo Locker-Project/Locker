@@ -1,63 +1,13 @@
+import JAAudioSettings from "./ja.audioSettings";
+import JAGameplaySettings from "./ja.gameplaySettings";
+import JAGeneralSettings from "./ja.generalSettings";
+
 const JASettingsPage = {
     "title": "設定",
     "back": "戻る",
     "search": "検索",
-    "general": {
-        "title": "総合",
-        "language": {
-            "name": "言語",
-            "description": "言語を選択してください。"
-        },
-        "benchmark": {
-            "name": "ベンチマーク",
-            "description": "ベンチマークを実行してデバイスに合った設定のためのヒントを提案します。",
-            "button": "実行"
-        },
-        "terms": {
-            "name": "利用規約",
-            "description": "利用規約を表示します。",
-            "button": "表示"
-        },
-        "credit": {
-            "name": "クレジット",
-            "description": "クレジット\n プログラム : Mksk , ぐらん \n 楽曲提供 : Rae , 榛原静 / Shizuka Haibara \n イラストレーション : てぬ",
-        }
-    },
-    "gameplay": {
-        "title": "ゲームプレイ",
-        "keybind": {
-            "name": "キーバインド",
-            "description": "ゲームの操作に使用するキーを設定します。",
-        },
-        "liveVisualization": {
-            "name": "ライブビジュアライゼーション",
-            "description": "プレイ中の精度/予測表示を有効にします。",
-        },
-        "scrollSpeed": {
-            "name": "スクロールスピード",
-            "description": "ゲームのスクロールスピードを設定します",
-        },
-        "offset": {
-            "name": "オフセット調整",
-            "description": "音楽に対するノートの位置を調整します。\nFuture(Fast)が多い場合は-に,Past(Late)が多い場合は+に調整してください。無線機器を使用している場合は75~200を推奨。"
-        },
-        "judgeTiming": {
-            "name": "判定タイミング調整",
-            "description": "ノートの判定のずれを調整します。\nFuture(Fast)が多い場合は-に,Past(Late)が多い場合は+に調整してください。\n無線機器を使用している場合は50~100を推奨。"
-        },
-        "judgeTextShow": {
-            "name": "判定テキスト表示",
-            "description": "判定テキストの表示を設定します。"
-        },
-        "judgeTextPosition": {
-            "name": "判定テキスト位置調整",
-            "description": "判定テキストの位置を設定します。"
-        },
-        "judgeTextDirection": {
-            "name": "判定テキスト表示方向",
-            "description": "判定テキストの表示方向を設定します。"
-        }
-    },
+    "general": JAGeneralSettings,
+    "gameplay": JAGameplaySettings,
     "graphics": {
         "title": "グラフィックス",
         "gameResolution": {
@@ -97,33 +47,7 @@ const JASettingsPage = {
             "description": "ゲーム本編開始時に自動的にフルスクリーンにします。"
         }
     },
-    "audio": {
-        "title": "オーディオ",
-        "masterVolume": {
-            "name": "マスター音量",
-            "description": "ゲームの総合音量を設定します。"
-        },
-        "musicVolume": {
-            "name": "楽曲音量",
-            "description": "楽曲と選曲プレビューの音量を設定します。"
-        },
-        "effectVolume": {
-            "name": "エフェクト音量",
-            "description": "判定音とアシストサウンドの音量を設定します。"
-        },
-        "stereo": {
-            "name": "ステレオバランス",
-            "description": "ゲームの左右の音量バランスを調整します。\n0で左,2で右側に調整します。1で中央に調整します。"
-        },
-        "positional": {
-            "name": "位置音響",
-            "description": "ゲームの効果音の音響効果を設定します。\n位置に応じてステレオバランスを変更します。"
-        },
-        "positionalIntensity": {
-            "name": "位置音響レベル",
-            "description": "位置音響の強さの倍率を設定します。"
-        }
-    },
+    "audio": JAAudioSettings,
     "storage": {
         "title": "ストレージ",
     },
