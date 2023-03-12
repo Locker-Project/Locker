@@ -7,6 +7,7 @@ import Title from "Pages/title/title";
 import Setup from "Pages/setup/setup";
 import Home from "Pages/home/home";
 import MusicSelect from "Pages/musicSelect/musicSelect";
+import Settings from "Pages/settings/settings";
 
 
 const PageRouter: solid.Component = () => {
@@ -19,6 +20,7 @@ const PageRouter: solid.Component = () => {
             <Route path={"/setup/*"} element={<Setup />} />
             <Route path={"/home"} element={<Home />} />
             <Route path={"/select"} element={<MusicSelect />} />
+            <Route path={"/settings/*"} element={<Settings />} />
         </Routes>
     )
 }
