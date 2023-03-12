@@ -1,0 +1,71 @@
+@import "../../App/mixin.scss";
+
+.rangeinputWrapper {
+    display: grid;
+    grid-template-columns: 1fr 64px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    height: 40px;
+
+    .rangeinput {
+        all: revert;
+        appearance: none;
+        background-color: $inputBackgroundColor;
+        border: 1px solid $darkBorder;
+
+        &.tiny {
+            height: 4px;
+        }
+
+        &.fit {
+            height: 24px;
+        }
+
+        &.large {
+            height: 36px;
+        }
+
+        &::-webkit-slider-thumb {
+            appearance: none;
+            width: 8px;
+            height: 24px;
+            display: block;
+            background-color: $accentColor;
+            border-radius: 0;
+
+            &:hover {
+                filter: brightness(0.5);
+            }
+        }
+
+        &::-moz-range-thumb {
+            appearance: none;
+            width: 8px;
+            height: 24px;
+            display: block;
+            background-color: $accentColor;
+            border-radius: 0;
+
+            &:hover {
+                background-color: $clickedAccentColor;
+            }
+        }
+    }
+
+    .rangeinputNumber {
+        appearance: none;
+        -moz-appearance: textfield;
+        background-color: transparent;
+        color: whitesmoke;
+        text-align: center;
+        border: none;
+        @include font-size;
+        height: 100%;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            appearance: none;
+            margin: 0;
+        }
+    }
+}
