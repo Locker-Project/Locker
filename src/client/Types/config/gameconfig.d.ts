@@ -12,7 +12,12 @@ interface gameConfig {
         }
     }
     gameplay: {
-        key: Array<keyMap>
+        key: {
+            key2: Array<string>
+            key3: Array<string>
+            key4: Array<string>
+            key5: Array<string>
+        }
         scrollSpeed: number
         random: boolean
         fieldWall: false | number
@@ -26,15 +31,9 @@ interface gameConfig {
         masterVolume: number
         musicVolume: number
         effectVolume: number
+        uiVolume: number
         audioStereo: number
     }
-}
-
-interface keyMap {
-    code: string
-    key: string
-    show: string
-
 }
 
 type AntiAliasType = false | "default" | "TAA" | "SMAA" | "SSAA" | "FXAA"
