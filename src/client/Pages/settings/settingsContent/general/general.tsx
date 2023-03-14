@@ -3,6 +3,7 @@ import { useTransContext } from "@mbarzda/solid-i18next";
 
 import TranslateText from "Components/TranslateText/translateText";
 import SelectBox from "Components/Selectbox/selectbox";
+import NormalButton from "Components/Button/normalButton/normalButton";
 
 import SettingsTemplate from "Pages/settings/settingsTemplate/settingsTemplate";
 
@@ -11,6 +12,9 @@ import { settingsData } from "Types/Settings/settings";
 import version from "Assets/StaticInfo/version.json";
 
 import style from "./general.module.scss";
+import { deleteLocalStorage } from "Utils/Storage/LocalStorage/deleteLocalStorage";
+import deleteDatabase from "Utils/Storage/database/deleteDatabase";
+import clearStorage from "Utils/Storage/clear/clearStorage";
 
 
 
@@ -42,6 +46,27 @@ const GeneralSettings: solid.Component = () => {
             input: <></>,
             details: {
                 description: <TranslateText key="settings.general.information.description" options={{ version: version.version, year: new Date().getFullYear() }} />,
+            }
+        },
+        {
+            label: <TranslateText key="settings.general.deleteConfig.name" />,
+            input: <NormalButton onClick={deleteLocalStorage}><TranslateText key="settings.general.delete" /></NormalButton>,
+            details: {
+                description: <TranslateText key="settings.general.deleteConfig.description" options={{ version: version.version, year: new Date().getFullYear() }} />,
+            }
+        },
+        {
+            label: <TranslateText key="settings.general.deleteResources.name" />,
+            input: <NormalButton onClick={deleteDatabase}><TranslateText key="settings.general.delete" /></NormalButton>,
+            details: {
+                description: <TranslateText key="settings.general.deleteResources.description" options={{ version: version.version, year: new Date().getFullYear() }} />,
+            }
+        },
+        {
+            label: <TranslateText key="settings.general.deleteAll.name" />,
+            input: <NormalButton onClick={clearStorage}><TranslateText key="settings.general.delete" /></NormalButton>,
+            details: {
+                description: <TranslateText key="settings.general.deleteAll.description" options={{ version: version.version, year: new Date().getFullYear() }} />,
             }
         },
     ]
