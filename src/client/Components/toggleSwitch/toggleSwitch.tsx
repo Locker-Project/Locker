@@ -2,7 +2,7 @@ import * as solid from "solid-js";
 import style from "./toggleSwitch.module.scss"
 
 import clsx from "clsx";
-const ToggleSwitch: solid.Component<solid.JSX.HTMLAttributes<HTMLInputElement>> = (props) => {
+const ToggleSwitch: solid.Component<solid.JSX.InputHTMLAttributes<HTMLInputElement>> = (props) => {
 
     return (
         <label class={clsx(style.wrapper, props.class)}>
