@@ -1,0 +1,37 @@
+@import "../../../../App/mixin.scss";
+
+.keySettings {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    padding: 4px;
+
+    .keyBind {
+        height: auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        &:hover {
+            box-shadow: 0 0 4px 1px $borderColor;
+        }
+
+        &:active {
+            box-shadow: 0 0 4px 2px $accentColor;
+        }
+
+        &:focus,
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 4px 2px $accentColor;
+        }
+    }
+}
+
+.timingAccuracy {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    column-gap: 16px;
+
+}
