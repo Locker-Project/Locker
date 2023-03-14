@@ -18,8 +18,6 @@ const MusicSelectToolbar: solid.Component = () => {
     const navigate = useNavigate();
     const buttonModel = useButtonModel();
 
-    const filterIdentifier = uuidv4();
-
     let containerRef: HTMLDivElement | undefined;
 
     const filterList = [
@@ -46,12 +44,13 @@ const MusicSelectToolbar: solid.Component = () => {
                 <span><TranslateText key="musicSelect.filter" /></span>
                 <solid.For each={filterList}>
                     {
-                        content => (
-                            <label class={clsx(style.filterRadio, (content.value == musicFilter()) && style.active)} tabIndex={0} use:buttonModel={{}}>
-                                <input type="radio" name={filterIdentifier} value={content.value} onChange={() => setMusicFilter(content.value)} />
-                                {content.label}
-                            </label>
-                        )
+                        content => {
+                            return (
+                                <label class={clsx(style.filterRadio, (content.value == musicFilter()) && style.active)} tabIndex={0} use:buttonModel={{}} onClick={() => setMusicFilter(content.value)}>
+                                    {content.label}
+                                </label>
+                            )
+                        }
                     }
                 </solid.For>
             </div>

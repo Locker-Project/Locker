@@ -22,8 +22,6 @@ const SettingToolbar: solid.Component = () => {
     const buttonModel = useButtonModel();
     const [selectedTab, setSelectedTab] = solid.createSignal(t("settings.general.title"));
 
-    const tabIdentifier = uuidv4();
-
     let containerRef: HTMLDivElement | undefined;
 
     const settingTabs = [
@@ -31,9 +29,7 @@ const SettingToolbar: solid.Component = () => {
         { label: t("settings.gameplay.title"), url: "./gameplay" },
         { label: t("settings.graphics.title"), url: "./graphics" },
         { label: t("settings.audio.title"), url: "./audio" }
-
     ]
-
 
     function navigateHome() {
         navigate("/home");
@@ -48,9 +44,11 @@ const SettingToolbar: solid.Component = () => {
             <div class={style.tabs}>
                 <solid.For each={settingTabs}>
                     {tab => {
+                        const handleClick = () => {
+                            setSelectedTab(tab.label); navigate(tab.url)
+                        }
                         return (
-                            <label class={clsx(style.tab, (tab.label == selectedTab()) && style.active)} tabIndex={0} use:buttonModel={{}}>
-                                <input type="radio" name={tabIdentifier} value={tab.url} onChange={() => { setSelectedTab(tab.label); navigate(tab.url) }} />
+                            <label class={clsx(style.tab, (tab.label == selectedTab()) && style.active)} tabIndex={0} use:buttonModel={{}} onClick={handleClick} >
                                 {tab.label}
                             </label>
                         )
