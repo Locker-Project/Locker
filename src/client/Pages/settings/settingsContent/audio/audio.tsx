@@ -48,7 +48,7 @@ const AudioSettings: solid.Component = () => {
             label: <TranslateText key="settings.audio.uiVolume.name" />,
             input: <RangeInput value={audioConfig.uiVolume * 100} max={100} min={0} onChange={v => setAudioConfig("uiVolume", v / 100)} />,
             details: {
-                description: <AudioDetailsWithPreview key="settings.audio.uiVolume.description" volume={audioConfig.effectVolume} />
+                description: <AudioDetailsWithPreview key="settings.audio.uiVolume.description" volume={audioConfig.uiVolume} />
             }
         },
         {

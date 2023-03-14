@@ -12,6 +12,7 @@ import { gameConfigStore } from "State/gameCondigStore";
 
 import style from "./settings.module.scss";
 import GameplaySettings from "./settingsContent/gameplay/gameplay";
+import GraphicsSettings from "./settingsContent/graphics/graphics";
 
 
 const Settings: solid.Component = () => {
@@ -60,7 +61,7 @@ const Settings: solid.Component = () => {
                 <Routes>
                     <Route path={"/"} element={<GeneralSettings />} />
                     <Route path={"/gameplay"} element={<GameplaySettings />} />
-                    <Route path={"/graphics"} element={<>graphics</>} />
+                    <Route path={"/graphics"} element={<GraphicsSettings />} />
                     <Route path={"/audio"} element={<AudioSettings />} />
                 </Routes>
             </div>
