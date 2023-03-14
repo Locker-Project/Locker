@@ -1,15 +1,8 @@
 interface gameConfig {
     graphics: {
-        menu: {
-            resolution: number
-            fps: number
-            antiAlias: true
-        },
-        musicgame: {
-            resolution: number
-            fps: number
-            antiAlias: boolean
-        }
+        resolution: number
+        fps: number
+        antiAlias: boolean
     }
     gameplay: {
         key: {
