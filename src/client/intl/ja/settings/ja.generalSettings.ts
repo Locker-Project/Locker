@@ -18,6 +18,19 @@ const JAGeneralSettings = {
         "name": "情報",
         "description": "Locker {{version,string}} \n Copyright {{year,string}} Locker project."
     },
+    "deleteConfig": {
+        "name": "セーブデータと設定を削除",
+        "description": "セーブデータと設定を削除します。"
+    },
+    "deleteResources": {
+        "name": "リソースを削除",
+        "description": "楽曲リソースを削除します。"
+    },
+    "deleteAll": {
+        "name": "すべてのデータを削除",
+        "description": "すべてのデータを削除します。"
+    },
+    "delete": "削除",
     "credit": {
         "name": "クレジット",
         "description": "クレジット\n プログラム : Mksk , ぐらん \n 楽曲提供 : Rae , 榛原静 / Shizuka Haibara \n イラストレーション : てぬ",

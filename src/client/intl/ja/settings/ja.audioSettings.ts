@@ -1,6 +1,10 @@
 const JAAudioSettings = {
     "title": "オーディオ",
-    "preview":"試聴",
+    "preview": "試聴",
+    "output": {
+        "name": "出力デバイス",
+        "description": "オーディオの出力デバイスを設定します。",
+    },
     "masterVolume": {
         "name": "マスター音量",
         "description": "ゲームの総合音量を設定します。"
