@@ -25,16 +25,9 @@ const DBVersion = {
 
 const gameConfig: gameConfig = {
     graphics: {
-        menu: {
-            resolution: 1,
-            fps: 60,
-            antiAlias: true
-        },
-        musicgame: {
-            resolution: 1,
-            fps: 120,
-            antiAlias: true
-        }
+        resolution: 1,
+        fps: 120,
+        antiAlias: true
     },
     gameplay: {
         scrollSpeed: 10,
@@ -44,7 +37,7 @@ const gameConfig: gameConfig = {
             key2: ["KeyF", "KeyJ"],
             key3: ["KeyF", "Space", "KeyJ"],
             key4: ["KeyD", "KeyF", "KeyJ", "KeyK"],
-            key5: ["KeyD", "KeyF", "KeyJ", "KeyK", "Space"]
+            key5: ["KeyD", "KeyF", "Space", "KeyJ", "KeyK"]
         },
         timing: {
             offset: 0,
@@ -56,7 +49,7 @@ const gameConfig: gameConfig = {
         masterVolume: 1,
         musicVolume: 1,
         effectVolume: 1,
-        uiVolume:1,
+        uiVolume: 1,
         audioStereo: 0,
     }
 }

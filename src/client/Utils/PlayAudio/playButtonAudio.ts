@@ -15,7 +15,7 @@ function playClickAudio(): Howl {
         volume
     });
     audio.play();
-
+    
     audio.once("end", () => audio.unload());
 
     return audio;
