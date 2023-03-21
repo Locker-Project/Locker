@@ -9,6 +9,7 @@ import defaultUrl from "Assets/StaticInfo/defaultUrl.json";
 import style from "./header.module.scss";
 
 import { useButtonModel } from "Components/Functions/ActivateModel/activateModel";
+import { setShowQuickMenu } from "State/quickMenuState";
 
 declare module "solid-js" {
     namespace JSX {
@@ -34,7 +35,7 @@ const Header: solid.Component<{ title: solid.JSXElement }> = (props) => {
         //{ element: <BsGear />, onClick: () => { } },
         { element: <BsLink45deg />, onClick: () => { } },
         { element: <BsGithub />, onClick: () => { open(defaultUrl.github.repo) } },
-        { element: <BsGrid3x3Gap />, onClick: () => { } },
+        { element: <BsGrid3x3Gap />, onClick: () => { setShowQuickMenu(s => !s) } },
     ]
 
     const buttonModel = useButtonModel();
