@@ -27,7 +27,8 @@ const gameConfig: gameConfig = {
     graphics: {
         resolution: 1,
         fps: 120,
-        antiAlias: true
+        antiAlias: true,
+        autoFullScreen: true
     },
     gameplay: {
         scrollSpeed: 10,

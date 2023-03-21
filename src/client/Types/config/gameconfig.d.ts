@@ -2,7 +2,8 @@ interface gameConfig {
     graphics: {
         resolution: number
         fps: number
-        antiAlias: boolean
+        antiAlias: boolean,
+        autoFullScreen: boolean
     }
     gameplay: {
         key: {
