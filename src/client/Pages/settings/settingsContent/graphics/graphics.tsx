@@ -25,7 +25,7 @@ const GraphicsSettings: solid.Component = () => {
     const graphicsContents: Array<settingsData> = [
         {
             label: <TranslateText key="settings.graphics.gameResolution.name" />,
-            input: <RangeInput value={graphicsConfig.resolution} max={200} min={1} onChange={v => setGraphicsConfig("resolution", v)} />,
+            input: <RangeInput value={graphicsConfig.resolution * 100} max={200} min={1} onChange={v => setGraphicsConfig("resolution", v / 100)} />,
             details: {
                 description: <TranslateText key="settings.graphics.gameResolution.description" />
             }
@@ -42,6 +42,13 @@ const GraphicsSettings: solid.Component = () => {
             input: <ToggleSwitch checked={graphicsConfig.antiAlias} onChange={v => setGraphicsConfig("antiAlias", v.currentTarget.checked)} />,
             details: {
                 description: <TranslateText key="settings.graphics.gameAntiAliasing.description" />
+            }
+        },
+        {
+            label: <TranslateText key="settings.graphics.autoFullScreen.name" />,
+            input: <ToggleSwitch checked={graphicsConfig.autoFullScreen} onChange={v => setGraphicsConfig("autoFullScreen", v.currentTarget.checked)} />,
+            details: {
+                description: <TranslateText key="settings.graphics.autoFullScreen.description" />
             }
         },
     ]
