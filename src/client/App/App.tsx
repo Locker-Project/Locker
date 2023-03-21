@@ -17,6 +17,7 @@ import NavigatorOverlay from "Components/Overlay/Navigator/navigatorOverlay";
 
 import style from "./App.module.scss";
 import "./style.scss";
+import QuickMenu from "Components/QuickMenu/quickMenu";
 
 
 const App: solid.Component = () => {
@@ -39,6 +40,7 @@ const App: solid.Component = () => {
                             <div class={style.content}>
                                 <PageRouter />
                                 <Toaster />
+                                <QuickMenu />
                             </div>
                             <div class={style.overlay}>
                                 <GeneralOverlay />
