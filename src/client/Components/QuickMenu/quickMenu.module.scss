@@ -1,0 +1,36 @@
+@import "../../App/mixin.scss";
+
+.quickMenu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: $transparent-bg;
+
+    .inner {
+        position: absolute;
+        height: 100%;
+        width: 360px;
+        top: 0;
+        right: -50%;
+        background-color: $inputBackgroundColor;
+        padding: 4px;
+
+        @media screen and (max-width:840px) {
+            width: 240px;
+        }
+    }
+
+    .jumpPage {
+        background-color: $inputForegroundColor;
+        border: 1px solid $borderColor;
+        margin: 2px 0;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            border-color: $accentColor;
+        }
+    }
+}
